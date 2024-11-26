@@ -1,22 +1,24 @@
 ---
 title: Getting Started
-description: Learn how to connect and start building on Swell Network L2, the Restaking Yield Layer of the Superchain
+description: Learn how to connect and start building on Swell Chain
 ---
+
+import { TypeTable } from 'fumadocs-ui/components/type-table';
 
 ## Introduction
 
 In this guide, we will cover the following:
-- How to setup your wallet/network
-- How to bridge assets to Swell L2
-  - How to get testnet funds
-- How to deploy a smart contract
-- How to interact with your deployed contract
+1. Setting up your wallet and network configuration
+2. Bridging assets between Ethereum and Swell Chain
+3. Obtaining testnet funds for development
+4. Deploying smart contracts to the network
+5. Interacting with deployed contracts
 
-This will enable you to get a feel of the Swell Network L2 and start building on top of it.
+This will enable you to get a feel of the Swell Chain and start building on top of it.
 
 ## Network Configuration
 
-To interact with Swell L2, you need to add the following networks to your wallet:
+To interact with Swell Chain, you need to add the following networks to your wallet:
 
 import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 
@@ -24,7 +26,7 @@ import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
   <Tab value="Mainnet">
     | Parameter | Value |
     | --- | --- |
-    | Chain Name | Swell Network |
+    | Chain Name | Swell Chain |
     | Chain ID | 1923 |
     | RPC URL | https://swell-mainnet.alt.technology |
     | Block Explorer | https://swell-mainnet-explorer.alt.technology |
@@ -32,8 +34,8 @@ import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
   <Tab value="Testnet">
     | Parameter | Value |
     | --- | --- |
-    | Chain Name | Swell Network Testnet |
-    | Chain ID | 1923 |
+    | Chain Name | Swell Chain Testnet |
+    | Chain ID | 1924 |
     | RPC URL | https://swell-testnet.alt.technology |
     | Block Explorer | https://swell-testnet-explorer.alt.technology |
   </Tab>
@@ -47,13 +49,13 @@ The networks can also be added through [ChainList](https://chainlist.org/?search
 
 ### Obtaining Test ETH
 
-1. Switch your wallet network to Swell L2 Testnet
-2. Navigate to the [Swell Faucet](https://faucet.swellnetwork.io)
+1. Switch your wallet network to Swell Chain Testnet
+2. Navigate to the [Swell Faucet](https://faucet.swellnetwork.io) {/* TODO: Add link*/}
 3. Connect your wallet and request testnet ETH
 
 ### Asset Bridging
 
-The [Swell Bridge](https://bridge.swellnetwork.io) enables asset transfers between Ethereum and Swell L2:
+The [Swell Bridge](https://bridge.swellnetwork.io) enables asset transfers between Ethereum and Swell Chain:
 
 ```solidity
 // Bridge Contract Addresses
@@ -69,15 +71,95 @@ interface IBridgeAddresses {
 }
 ```
 
+### Bridging ERC20 Tokens
+
+The Standard Bridge contract enables asset transfers between Ethereum and Swell Chain through a lock-and-mint mechanism. 
+
+To bridge assets, call the `bridgeERC20To()` function on the bridge contract with the following parameters: 
+<TypeTable
+  type={{
+    sourceToken: {
+      description: 'The address of the token to bridge on the source chain',
+      type: 'address',
+      default: '-'
+    },
+    destinationToken: {
+      description: 'The address of the token to mint on the destination chain',
+      type: 'address', 
+      default: '-'
+    },
+    recipient: {
+      description: 'The address to receive the bridged tokens',
+      type: 'address',
+      default: '-'
+    },
+    amount: {
+      description: 'The amount of tokens to bridge',
+      type: 'uint256',
+      default: '-'
+    },
+    gasLimit: {
+      description: 'Minimum gas limit for the bridge transaction',
+      type: 'uint256',
+      default: '-'
+    },
+    extraData: {
+      description: 'Optional additional data for the bridge transaction',
+      type: 'bytes',
+      default: '0x'
+    }
+  }}
+/>
+
+### Bridging ETH
+
+To bridge ETH between Ethereum and Swell Chain, call the `bridgeETH()` or `bridgeETHTo()` functions on the bridge contract:
+
+<TypeTable
+  type={{
+    recipient: {
+      description: 'The address to receive the bridged ETH (only for bridgeETHTo)',
+      type: 'address',
+      default: '-'
+    },
+    gasLimit: {
+      description: 'Minimum gas limit for the bridge transaction',
+      type: 'uint256',
+      default: '-'
+    },
+    extraData: {
+      description: 'Optional additional data for the bridge transaction',
+      type: 'bytes',
+      default: '0x'
+    }
+  }}
+/>
+
+<Callout type="info">
+You can also bridge by sending a basic ETH transfer from an EOA directly to the Bridge Contract address.
+This is possible because the Bridge Contract includes a receive function that enables direct ETH transfers from an EOA on Ethereum to Swell Chain without calling specific bridge functions.
+Find the contract addresses for mainnet and testnet in the [Contract Addresses](/docs/developer-resources/contract-addresses) section.
+</Callout>
+
+
+
+### Bridge Mechanics
+
+The bridge locks the tokens on the source chain and mints equivalent tokens on the destination chain. 
+Transfers from Ethereum to Swell Chain complete in 1-3 minutes, while transfers back to Ethereum have a 7-day challenge period.
+
+
+For more information on bridging assets via the Standard Bridge Contract, refer to the [Standard Bridge documentation](https://docs.optimism.io/builders/app-developers/bridging/standard-bridge).
+
 ---
 
 ## Smart Contract Development
 
-Let's deploy your first contract on Swell L2.
+Let's deploy your first contract on Swell Chain.
 Use the following code as a template. 
 It is a simple counter contract that can be incremented and decremented.
 
-```solidity
+```solidity title="Counter.sol"
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.26;
 
@@ -108,7 +190,7 @@ Open in the [Remix IDE](https://remix.ethereum.org/?#code=Ly8gU1BEWC1MaWNlbnNlLU
 
 ## Network Architecture
 
-Swell L2 combines the Optimism Superchain with AltLayer's restaking infrastructure:
+Swell Chain combines the Optimism Superchain with AltLayer's restaking infrastructure:
 
 ### Core Components
 
@@ -122,7 +204,7 @@ These services leverage Ethereum's security through EigenLayer's restaking mecha
 
 ## Transaction Fees
 
-Swell L2 transactions include two components:
+Swell Chain transactions include two components:
 
 1. **L2 Execution Fee**: Cost for transaction execution on L2
 2. **L1 Security Fee**: Estimated cost for L1 publication

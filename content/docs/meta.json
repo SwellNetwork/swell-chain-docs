@@ -3,22 +3,20 @@
         "index",
 
         "---📖 Fundamentals---",
-        "fundamentals/about-swell-l2",
+        "fundamentals/about-swell-chain",
         
         "---🛠️ Build on Swell---",
         "getting-started/getting-started",
+        "developer-resources/rpc-providers",
+        "developer-resources/contract-addresses",
+        "guides/block-explorers",
+        "guides/monitoring",
         
         "---💡 Core Concepts---",
         "core-concepts/layer-2-fundamentals",
         "core-concepts/rollup-technology",
         "core-concepts/gas-and-fees",
         "core-concepts/network-security",
-        
-        "---🔧 Developer Resources---",
-        "developer-resources/rpc-providers",
-        "developer-resources/contract-addresses",
-        "guides/block-explorers",
-        "guides/monitoring",
         
         "---⚙️ Node Operation---",
         "node-operation/overview",
@@ -27,8 +25,6 @@
 
         "---🤝 Community---",
         "community/governance",
-        "community/contributing",
-        "community/support",
         "community/partners"
     ]
 }
