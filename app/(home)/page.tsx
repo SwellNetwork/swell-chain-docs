@@ -26,7 +26,7 @@ export default function HomePage() {
             </span>
           </h1>
           <p className="mb-8 text-xl text-muted-foreground">
-            Learn how to integrate, build, and scale with Swell
+            Learn how to integrate, build, and scale with Swell Network
           </p>
         </div>
       </section>
