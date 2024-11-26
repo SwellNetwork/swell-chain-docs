@@ -5,7 +5,7 @@
         "---📖 Fundamentals---",
         "fundamentals/about-swell-l2",
         
-        "---🛠️ Getting Started---",
+        "---🛠️ Build on Swell---",
         "getting-started/getting-started",
         
         "---💡 Core Concepts---",
@@ -17,17 +17,14 @@
         "---🔧 Developer Resources---",
         "developer-resources/rpc-providers",
         "developer-resources/contract-addresses",
-        
-        "---📚 Guides & Tutorials---",
-        "guides/deploying-smart-contracts",
-        "guides/building-dapps",
-        "guides/bridging",
         "guides/block-explorers",
         "guides/monitoring",
         
         "---⚙️ Node Operation---",
         "node-operation/overview",
-        
+ 
+        "---📚 Guides & Tutorials (soon)---",
+
         "---🤝 Community---",
         "community/governance",
         "community/contributing",
