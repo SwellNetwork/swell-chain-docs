@@ -12,7 +12,7 @@ export const baseOptions: BaseLayoutProps = {
   nav: {
     title: (
       <div className="flex items-center gap-2">
-        <Image src={LogoSvg} alt="Swell L2 Logo" width={32} height={32} />
+        <Image src={LogoSvg} alt="Swell Chain Logo" width={32} height={32} />
         <span>Swell Chain</span>
       </div>
     ),

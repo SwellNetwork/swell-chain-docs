@@ -26,7 +26,7 @@ export default function HomePage() {
             </span>
           </h1>
           <p className="mb-8 text-xl text-muted-foreground">
-            Learn how to integrate, build, and scale with Swell Network
+            Learn how to integrate, build, and scale with Swell Chain
           </p>
         </div>
       </section>
@@ -70,7 +70,7 @@ export default function HomePage() {
             <Blocks className="mb-4 h-8 w-8 text-blue-500" />
             <h2 className="mb-2 text-xl font-bold">Protocol Specs</h2>
             <p className="mb-4 text-muted-foreground">
-              Detailed specifications of the Swell Network protocol and
+              Detailed specifications of the Swell Chain protocol and
               architecture.
             </p>
             <Button variant="outline" className="group">
@@ -85,7 +85,7 @@ export default function HomePage() {
       <footer className="border-t border-white/10">
         <div className="container flex flex-col items-center justify-between gap-4 px-4 py-6 md:flex-row">
           <div className="text-sm text-gray-400">
-            © 2024 Swell Network. All rights reserved.
+            © 2024 Swell Chain. All rights reserved.
           </div>
           <div className="flex gap-4">
             <Link href="#" className="text-sm text-gray-400 hover:text-white">
