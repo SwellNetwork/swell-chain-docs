@@ -39,13 +39,14 @@ export default function HomePage() {
             <Book className="mb-4 h-8 w-8 text-blue-500" />
             <h2 className="mb-2 text-xl font-bold">Getting Started</h2>
             <p className="mb-4 text-muted-foreground">
-              New to Swell? Start here for a comprehensive introduction to our
-              platform.
+              New to Swell? Start here for an introduction to Swell Chain.
             </p>
-            <Button variant="outline" className="group">
-              Learn More
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Button>
+            <Link href="/docs/">
+              <Button variant="outline" className="group">
+                Learn More
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </Link>
           </div>
 
           {/* Developer Guide */}
@@ -53,13 +54,15 @@ export default function HomePage() {
             <Code className="mb-4 h-8 w-8 text-blue-500" />
             <h2 className="mb-2 text-xl font-bold">Developer Guide</h2>
             <p className="mb-4 text-muted-foreground">
-              Technical documentation, APIs, and tools for building on Swell
-              Network.
+              Head this way to read a Quickstart Guide and start building on
+              Swell Chain or find infrastructure and tooling resources.
             </p>
-            <Button variant="outline" className="group">
-              View Guide
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Button>
+            <Link href="/docs/getting-started/getting-started">
+              <Button variant="outline" className="group">
+                View Guide
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </Link>
           </div>
 
           {/* Protocol Specs */}

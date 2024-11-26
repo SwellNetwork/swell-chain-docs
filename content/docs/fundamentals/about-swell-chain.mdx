@@ -1,22 +1,22 @@
 ---
-title: About Swell L2
-description: Swell Network L2 - The Restaking Yield Layer of the Superchain
+title: About Swell Chain
+description: Swell Chain - The Restaking Yield Layer of the Superchain
 ---
 
 ## Overview
 
-Swell L2 operates as a restaking-powered Layer 2 network built on the OP Stack.
+Swell Chain operates as a restaking-powered Layer 2 network built on the OP Stack.
 The network extends Ethereum's security through EigenLayer's restaking mechanism while leveraging Optimism's proven infrastructure for transaction processing and scalability.
 
 ## Technical Architecture
 
 ### Restaking Infrastructure
 
-Swell L2 implements three vertically integrated AltLayer Actively Validated Services (AVSs) that work together to provide security and performance:
+Swell Chain implements three vertically integrated AltLayer Actively Validated Services (AVSs) that work together to provide security and performance:
 
 ```mermaid
 graph TD
-    A[Swell L2] --> B[MACH AVS]
+    A[Swell Chain] --> B[MACH AVS]
     A --> C[VITAL AVS]
     A --> D[SQUAD AVS]
     B --> E[EigenLayer]
@@ -54,18 +54,18 @@ interface IOptimismFeatures {
 | Metric | Value |
 |--------|--------|
 | Block Time | ~2 seconds |
-| Time to Finality | \<1 second |
+| Time to Finality | \~10m (300 blocks) |
 | Gas Limit | 30,000,000 |
-| Target Gas Price | 0.001 gwei |
 
 ### Security Model
 
-Swell L2 implements a multi-layered security approach:
+Swell Chain implements a multi-layered security approach:
 
 1. Base security from Ethereum through EigenLayer restaking
 2. Additional validation through distributed AVS networks
 3. Optimism's proven fraud-proof system
-4. Decentralized sequencer network
+4. Decentralized sequencer network (TO CHECK) {/* TODO: Check if this is correct */}
+ 
 
 ## Economic Design
 
@@ -89,16 +89,15 @@ Transaction fees are split between:
 
 ## Development Focus
 
-Swell L2 prioritizes:
+Swell Chain prioritizes:
 
 1. Scalable DeFi infrastructure
-2. MEV-resistant transaction ordering
-3. Cross-chain interoperability
-4. Developer-friendly environment
+2. Cross-chain interoperability
+3. Developer-friendly environment
 
 ## Network Status
 
-View current network status at [status.swellnetwork.io](https://status.swellnetwork.io)
+View current network status at [status.swellnetwork.io](https://status.swellnetwork.io) {/* TODO: Add link*/}
 
 ## Future Development
 
