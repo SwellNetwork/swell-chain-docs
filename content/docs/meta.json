@@ -1,0 +1,37 @@
+{
+    "pages": [
+        "index",
+
+        "---📖 Fundamentals---",
+        "fundamentals/about-swell-l2",
+        
+        "---🛠️ Getting Started---",
+        "getting-started/getting-started",
+        
+        "---💡 Core Concepts---",
+        "core-concepts/layer-2-fundamentals",
+        "core-concepts/rollup-technology",
+        "core-concepts/gas-and-fees",
+        "core-concepts/network-security",
+        
+        "---🔧 Developer Resources---",
+        "developer-resources/rpc-providers",
+        "developer-resources/contract-addresses",
+        
+        "---📚 Guides & Tutorials---",
+        "guides/deploying-smart-contracts",
+        "guides/building-dapps",
+        "guides/bridging",
+        "guides/block-explorers",
+        "guides/monitoring",
+        
+        "---⚙️ Node Operation---",
+        "node-operation/overview",
+        
+        "---🤝 Community---",
+        "community/governance",
+        "community/contributing",
+        "community/support",
+        "community/partners"
+    ]
+}

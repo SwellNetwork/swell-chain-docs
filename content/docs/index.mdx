@@ -1,13 +1,90 @@
 ---
-title: Hello World
-description: Your first document
+title: Intro
+description: Build on Swell L2 - The Restaking Layer of the Superchain
 ---
 
-Welcome to the docs! You can start writing documents in `/content/docs`.
+import { Card, Cards } from "@/components/card";
+import { Code, Server, Waypoints, Network } from 'lucide-react';
 
-## What is Next?
+# Welcome to Swell Network
+
+Welcome to the Swell Network documentation, your comprehensive guide to building on Swell L2. For information about the Swell community and governance, visit the [Swell Community Hub](https://community.swellnetwork.io).
+
+## Developer Quick Links
+
+Start building on Swell L2 with these essential resources:
 
 <Cards>
-  <Card title="Learn more about Next.js" href="https://nextjs.org/docs" />
-  <Card title="Learn more about Fumadocs" href="https://fumadocs.vercel.app" />
+  <Card
+    icon={<Code className="text-blue-300" />}
+    href="/docs/guides/smart-contracts"
+    title="Deploy Smart Contracts"
+  >
+    Learn how to deploy and interact with smart contracts on Swell L2
+  </Card>
+  <Card
+    icon={<Server className="text-green-300" />}
+    href="/docs/node/running-a-node" 
+    title="Run a Node"
+  >
+    Set up and operate a Swell L2 node
+  </Card>
+  <Card
+    icon={<Waypoints className="text-yellow-300" />}
+    href="/docs/bridges/overview"
+    title="Integrate Bridges"
+  >
+    Connect with Swell L2's cross-chain bridges
+  </Card>
+  <Card
+    icon={<Network className="text-red-300" />}
+    href="/docs/avs/getting-started"
+    title="Participate in AVS"
+  >
+    Join Swell's Active Validator Set networks
+  </Card>
 </Cards>
+
+## Featured Developer Tools
+
+<Cards>
+  <Card
+    icon={<Network className="text-red-300" />}
+    href="https://explorer.swellnetwork.io"
+    title="Explorer"
+  ></Card>
+  <Card
+    icon={<Network className="text-red-300" />}
+    href="https://faucet.swellnetwork.io"
+    title="Faucet"
+  > </Card>
+  <Card
+    icon={<Network className="text-red-300" />}
+    href="https://status.swellnetwork.io"
+    title="Network Status"
+  >
+  </Card>
+</Cards>
+
+## Start Building
+
+The documentation is organized into the following sections:
+
+[Core Concepts →](/docs/concepts/architecture)  
+Understanding Swell L2's architecture and design
+
+[Guides →](/docs/guides/getting-started)  
+Step-by-step tutorials for building on Swell
+
+[Node Operation →](/docs/node/overview)  
+Running and maintaining Swell L2 nodes
+
+[API Reference →](/docs/api/json-rpc)  
+Complete API documentation
+
+## Join the Community
+
+- [Discord](https://discord.gg/swellnetwork)
+- [GitHub](https://github.com/swellnetwork)
+- [Twitter](https://twitter.com/swellnetwork)
+- [Blog](https://blog.swellnetwork.io)

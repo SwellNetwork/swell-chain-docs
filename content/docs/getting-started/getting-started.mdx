@@ -1,0 +1,132 @@
+---
+title: Getting Started
+description: Learn how to connect and start building on Swell Network L2, the Restaking Yield Layer of the Superchain
+---
+
+## Network Configuration
+
+Swell L2 operates on two networks - mainnet and testnet. Add these networks to your wallet:
+
+import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
+
+<Tabs items={['Mainnet', 'Testnet']} groupId="network" persist>
+  <Tab value="Mainnet">
+    | Parameter | Value |
+    | --- | --- |
+    | Chain Name | Swell Network |
+    | Chain ID | 1923 |
+    | RPC URL | https://swell-mainnet.alt.technology |
+    | Block Explorer | https://swell-mainnet-explorer.alt.technology |
+  </Tab>
+  <Tab value="Testnet">
+    | Parameter | Value |
+    | --- | --- |
+    | Chain Name | Swell Network Testnet |
+    | Chain ID | 1923 |
+    | RPC URL | https://swell-testnet.alt.technology |
+    | Block Explorer | https://swell-testnet-explorer.alt.technology |
+  </Tab>
+</Tabs>
+
+The networks can also be added through [ChainList](https://chainlist.org/?search=swell&testnets=true).
+
+---
+
+## Development Setup
+
+### Obtaining Test ETH
+
+1. Switch your wallet network to Swell L2 Testnet
+2. Navigate to the [Swell Faucet](https://faucet.swellnetwork.io)
+3. Connect your wallet and request testnet ETH
+
+### Asset Bridging
+
+The [Swell Bridge](https://bridge.swellnetwork.io) enables asset transfers between Ethereum and Swell L2:
+
+```solidity
+// Bridge Contract Addresses
+interface IBridgeAddresses {
+    // Mainnet
+    address constant BRIDGE_MAINNET = 0x4200000000000000000000000000000000000010;
+    address constant WETH_MAINNET = 0x4200000000000000000000000000000000000006;
+    address constant USDT_MAINNET = 0x41a0bD84E65e75Bc30AFBbe6ea142eBBcc347542;
+
+    // Testnet  
+    address constant BRIDGE_TESTNET = 0xeBb79a1D00B2d489f53ADee985a2Ded2A3553F22;
+    address constant USDT_TESTNET = 0xfd665f836095Ed02fDBF3C4F24174D70DFD6b69c;
+}
+```
+
+---
+
+## Smart Contract Development
+
+Let's deploy your first contract on Swell L2.
+Use the following code as a template. 
+It is a simple counter contract that can be incremented and decremented.
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.26;
+
+contract Counter {
+    uint256 public count;
+
+    // Function to get the current count
+    function get() public view returns (uint256) {
+        return count;
+    }
+
+    // Function to increment count by 1
+    function inc() public {
+        count += 1;
+    }
+
+    // Function to decrement count by 1
+    function dec() public {
+        // This function will fail if count = 0
+        count -= 1;
+    }
+}
+```
+
+Open in the [Remix IDE](https://remix.ethereum.org/?#code=Ly8gU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IE1JVApwcmFnbWEgc29saWRpdHkgXjAuOC4yNjsKCmNvbnRyYWN0IENvdW50ZXIgewogICAgdWludDI1NiBwdWJsaWMgY291bnQ7CgogICAgLy8gRnVuY3Rpb24gdG8gZ2V0IHRoZSBjdXJyZW50IGNvdW50CiAgICBmdW5jdGlvbiBnZXQoKSBwdWJsaWMgdmlldyByZXR1cm5zICh1aW50MjU2KSB7CiAgICAgICAgcmV0dXJuIGNvdW50OwogICAgfQoKICAgIC8vIEZ1bmN0aW9uIHRvIGluY3JlbWVudCBjb3VudCBieSAxCiAgICBmdW5jdGlvbiBpbmMoKSBwdWJsaWMgewogICAgICAgIGNvdW50ICs9IDE7CiAgICB9CgogICAgLy8gRnVuY3Rpb24gdG8gZGVjcmVtZW50IGNvdW50IGJ5IDEKICAgIGZ1bmN0aW9uIGRlYygpIHB1YmxpYyB7CiAgICAgICAgLy8gVGhpcyBmdW5jdGlvbiB3aWxsIGZhaWwgaWYgY291bnQgPSAwCiAgICAgICAgY291bnQgLT0gMTsKICAgIH0KfQo&lang=en&optimize=false&runs=200&evmVersion=null&version=soljson-v0.8.26+commit.8a97fa7a.js)
+
+---
+
+## Network Architecture
+
+Swell L2 combines the Optimism Superchain with AltLayer's restaking infrastructure:
+
+### Core Components
+
+- **Optimism Superchain**: A unified network of OP Chains sharing bridging, governance, and communication layers
+- **AltLayer AVSs**:
+  - MACH: Provides accelerated finality
+  - VITAL: Enables decentralized verification
+  - SQUAD: Powers decentralized sequencing
+
+These services leverage Ethereum's security through EigenLayer's restaking mechanism.
+
+## Transaction Fees
+
+Swell L2 transactions include two components:
+
+1. **L2 Execution Fee**: Cost for transaction execution on L2
+2. **L1 Security Fee**: Estimated cost for L1 publication
+
+Fee optimization strategies:
+- Submit transactions during low L1 gas periods (weekends)
+- Monitor L2 congestion for optimal execution timing
+
+---
+
+## Developer Resources
+
+- [Smart Contract Guide](https://docs.swellnetwork.io/smart-contracts)
+- [Gas & Fee Documentation](https://docs.swellnetwork.io/gas-fees)
+- [Architecture Deep Dive](https://docs.swellnetwork.io/architecture)
+- [Developer Discord](https://discord.gg/swellnetwork)
+
+Monitor network status at [status.swellnetwork.io](https://status.swellnetwork.io/)
