@@ -1,10 +1,13 @@
 ---
-title: Intro
-description: Swell Chain - The Restaking Layer of the Superchain
+title: Welcome
+description: Swell Chain - The restaking chain powered by Proof of Restake
 ---
 
 import { Card, Cards } from "@/components/card";
 import { Code, Server, Waypoints, Network } from 'lucide-react';
+import { SiX, SiGithub, SiDiscord } from '@icons-pack/react-simple-icons';
+import Logo from '@/public/images/logo.svg';
+
 
 # Welcome to Swell Chain
 
@@ -17,29 +20,27 @@ Start building on Swell Chain with these essential resources:
 <Cards>
   <Card
     icon={<Code className="text-blue-300" />}
-    href="/docs/guides/smart-contracts"
+    href="/docs/guides/getting-started"
     title="Deploy Smart Contracts"
   >
     Learn how to deploy and interact with smart contracts on Swell Chain
   </Card>
   <Card
-    icon={<Server className="text-green-300" />}
-    href="/docs/node/running-a-node" 
-    title="Run a Node"
+    icon={<Server className="text-green-300" />} 
+    title="Run a Node (soon)"
   >
     Set up and operate a Swell Chain node
   </Card>
   <Card
     icon={<Waypoints className="text-yellow-300" />}
-    href="/docs/bridges/overview"
+    href="/docs/developer-resources/rpc-providers"
     title="Integrate Bridges"
   >
     Connect with Swell Chain's cross-chain bridges
   </Card>
   <Card
     icon={<Network className="text-red-300" />}
-    href="/docs/avs/getting-started"
-    title="Participate in AVS"
+    title="Participate in AVS (soon)"
   >
     Join Swell's Active Validator Set networks
   </Card>
@@ -49,42 +50,49 @@ Start building on Swell Chain with these essential resources:
 
 <Cards>
   <Card
-    icon={<Network className="text-red-300" />}
     href="https://explorer.swellnetwork.io"
     title="Explorer"
-  ></Card>
+  >
+    See what's happening on Swell Chain
+  </Card>
   <Card
-    icon={<Network className="text-red-300" />}
     href="https://faucet.swellnetwork.io"
     title="Faucet"
-  > </Card>
+  >
+    Get testnet tokens for development
+  </Card>
   <Card
-    icon={<Network className="text-red-300" />}
+    href="https://bridge.swellnetwork.io"
+    title="Bridge"
+  >
+    Bridge between Swell Chain and other networks
+  </Card>
+  <Card
     href="https://status.swellnetwork.io"
     title="Network Status"
   >
+    Check the status of Swell Chain's network
   </Card>
 </Cards>
+
+---
 
 ## Start Building
 
 The documentation is organized into the following sections:
 
-[Core Concepts →](/docs/concepts/architecture)  
+[Core Concepts →](/docs/fundamentals/about-swell-chain)  
 Understanding Swell Chain's architecture and design
 
 [Guides →](/docs/guides/getting-started)  
 Step-by-step tutorials for building on Swell
 
-[Node Operation →](/docs/node/overview)  
+[Node Operation (soon) →](#)  
 Running and maintaining Swell Chain nodes
 
-[API Reference →](/docs/api/json-rpc)  
-Complete API documentation
+## Join the Community 
 
-## Join the Community
-
-- [Discord](https://discord.gg/swellnetwork)
-- [GitHub](https://github.com/swellnetwork)
-- [Twitter](https://twitter.com/swellnetwork)
+- <SiDiscord size={16} className="inline-block align-text-bottom mr-2" /> [Discord](https://discord.gg/swellnetworkdao)
+- <SiGithub size={16} className="inline-block align-text-bottom mr-2" /> [GitHub](https://github.com/swellnetwork)
+- <SiX size={16} className="inline-block align-text-bottom mr-2" /> [X](https://x.com/swellnetworkio)
 - [Blog](https://blog.swellnetwork.io)

@@ -6,25 +6,19 @@
         "fundamentals/about-swell-chain",
         
         "---🛠️ Build on Swell---",
-        "getting-started/getting-started",
+        "guides/getting-started",
         "developer-resources/rpc-providers",
         "developer-resources/contract-addresses",
         "guides/block-explorers",
         "guides/monitoring",
-        
-        "---💡 Core Concepts---",
-        "core-concepts/layer-2-fundamentals",
-        "core-concepts/rollup-technology",
-        "core-concepts/gas-and-fees",
-        "core-concepts/network-security",
-        
-        "---⚙️ Node Operation---",
-        "node-operation/overview",
- 
-        "---📚 Guides & Tutorials (soon)---",
 
-        "---🤝 Community---",
-        "community/governance",
-        "community/partners"
+        "---📚 Guides & Tutorials---",
+        "[Proof of Restake](https://www.swellnetwork.io/post/restakingyieldlayer)",
+        "[Blog](https://www.swellnetwork.io/blog)",
+
+        "---💬 Community---",
+        "[Discord](https://discord.gg/swellnetworkdao)",
+        "[GitHub](https://github.com/swellnetwork)",
+        "[X](https://x.com/swellnetworkio)"
     ]
 }

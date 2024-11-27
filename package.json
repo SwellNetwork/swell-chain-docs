@@ -1,6 +1,6 @@
 {
   "name": "swell-docs",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "build": "next build",
@@ -9,6 +9,7 @@
     "postinstall": "fumadocs-mdx"
   },
   "dependencies": {
+    "@icons-pack/react-simple-icons": "^10.2.0",
     "@radix-ui/react-popover": "^1.1.2",
     "@radix-ui/react-slot": "^1.1.0",
     "@theguild/remark-mermaid": "^0.1.3",
