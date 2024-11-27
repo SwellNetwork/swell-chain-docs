@@ -19,14 +19,15 @@ export default function HomePage() {
                 width={32}
                 height={32}
               />
-              Swell Chain -{" "}
+              Swell Chain
             </span>
+            {" - The restaking chain powered by "}
             <span className="bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
-              The Restaking Yield Layer
+              Proof of Restake
             </span>
           </h1>
           <p className="mb-8 text-xl text-muted-foreground">
-            Learn how to integrate, build, and scale with Swell Chain
+            Learn how to integrate, build, and scale with Swell Network
           </p>
         </div>
       </section>
@@ -39,14 +40,13 @@ export default function HomePage() {
             <Book className="mb-4 h-8 w-8 text-blue-500" />
             <h2 className="mb-2 text-xl font-bold">Getting Started</h2>
             <p className="mb-4 text-muted-foreground">
-              New to Swell? Start here for an introduction to Swell Chain.
+              New to Swell? Start here for a comprehensive introduction to our
+              platform.
             </p>
-            <Link href="/docs/">
-              <Button variant="outline" className="group">
-                Learn More
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-            </Link>
+            <Button variant="outline" className="group">
+              Learn More
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Button>
           </div>
 
           {/* Developer Guide */}
@@ -54,15 +54,13 @@ export default function HomePage() {
             <Code className="mb-4 h-8 w-8 text-blue-500" />
             <h2 className="mb-2 text-xl font-bold">Developer Guide</h2>
             <p className="mb-4 text-muted-foreground">
-              Head this way to read a Quickstart Guide and start building on
-              Swell Chain or find infrastructure and tooling resources.
+              Technical documentation, APIs, and tools for building on Swell
+              Network.
             </p>
-            <Link href="/docs/getting-started/getting-started">
-              <Button variant="outline" className="group">
-                View Guide
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-            </Link>
+            <Button variant="outline" className="group">
+              View Guide
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Button>
           </div>
 
           {/* Protocol Specs */}
@@ -70,7 +68,7 @@ export default function HomePage() {
             <Blocks className="mb-4 h-8 w-8 text-blue-500" />
             <h2 className="mb-2 text-xl font-bold">Protocol Specs</h2>
             <p className="mb-4 text-muted-foreground">
-              Detailed specifications of the Swell Chain protocol and
+              Detailed specifications of the Swell Network protocol and
               architecture.
             </p>
             <Button variant="outline" className="group">
@@ -85,7 +83,7 @@ export default function HomePage() {
       <footer className="border-t border-white/10">
         <div className="container flex flex-col items-center justify-between gap-4 px-4 py-6 md:flex-row">
           <div className="text-sm text-gray-400">
-            © 2024 Swell Chain. All rights reserved.
+            © 2024 Swell Network. All rights reserved.
           </div>
           <div className="flex gap-4">
             <Link href="#" className="text-sm text-gray-400 hover:text-white">
