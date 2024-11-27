@@ -11,15 +11,14 @@
         "developer-resources/contract-addresses",
         "guides/block-explorers",
         "guides/monitoring",
-        
-        "---💡 Core Concepts---",
-        "core-concepts/layer-2-fundamentals",
-        "core-concepts/rollup-technology",
-        "core-concepts/gas-and-fees",
-        "core-concepts/network-security",
- 
+
         "---📚 Guides & Tutorials---",
-        "[Swell Blog](https://www.swellnetwork.io/blog)",
-        "[Proof of Restake](https://www.swellnetwork.io/post/restakingyieldlayer)"
+        "[Proof of Restake](https://www.swellnetwork.io/post/restakingyieldlayer)",
+        "[Blog](https://www.swellnetwork.io/blog)",
+
+        "---💬 Community---",
+        "[Discord](https://discord.gg/swellnetworkdao)",
+        "[GitHub](https://github.com/swellnetwork)",
+        "[X](https://x.com/swellnetworkio)"
     ]
 }
