@@ -59,7 +59,7 @@ export default function HomePage() {
               Technical documentation, APIs, and tools for building on Swell
               Network.
             </p>
-            <Link href="/docs/getting-started/getting-started">
+            <Link href="/docs/guides/getting-started">
               <Button variant="outline" className="group">
                 View Guide
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
