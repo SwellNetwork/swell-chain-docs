@@ -38,15 +38,17 @@ export default function HomePage() {
           {/* Getting Started */}
           <div className="rounded-lg border bg-card p-6">
             <Book className="mb-4 h-8 w-8 text-blue-500" />
-            <h2 className="mb-2 text-xl font-bold">Getting Started</h2>
+            <h2 className="mb-2 text-xl font-bold">Welcome to Swell Chain</h2>
             <p className="mb-4 text-muted-foreground">
               New to Swell? Start here for a comprehensive introduction to our
               platform.
             </p>
-            <Button variant="outline" className="group">
-              Learn More
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Button>
+            <Link href="/docs/">
+              <Button variant="outline" className="group">
+                Learn More
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </Link>
           </div>
 
           {/* Developer Guide */}
@@ -57,10 +59,12 @@ export default function HomePage() {
               Technical documentation, APIs, and tools for building on Swell
               Network.
             </p>
-            <Button variant="outline" className="group">
-              View Guide
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Button>
+            <Link href="/docs/getting-started/getting-started">
+              <Button variant="outline" className="group">
+                View Guide
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </Link>
           </div>
 
           {/* Protocol Specs */}
@@ -71,10 +75,12 @@ export default function HomePage() {
               Detailed specifications of the Swell Network protocol and
               architecture.
             </p>
-            <Button variant="outline" className="group">
-              Explore Specs
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Button>
+            <Link href="/docs/fundamentals/about-swell-chain">
+              <Button variant="outline" className="group">
+                Explore Specs
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
