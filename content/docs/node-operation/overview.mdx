@@ -17,7 +17,7 @@ The following components must be available on your system:
 - Docker Compose v2.20.0+
 - 16GB RAM minimum (32GB recommended)
 - 4 CPU cores minimum
-- 1TB SSD storage
+- 1TB SSD storage (NVME recommended)
 - Linux operating system
 - Access to Ethereum L1 RPC and Beacon endpoints
 
@@ -35,7 +35,7 @@ git clone https://github.com/alt-research/opstack-fullnode-sync.git
 cd opstack-fullnode-sync
 ```
 
-2. Generate JWT secret:
+2. Generate JWT file:
 
 ```bash
 openssl rand -hex 32 > jwt.txt
@@ -93,7 +93,10 @@ PLASMA_DA_SERVER=
 L1_BEACON="<L1_BEACON>"
 ```
 
-### 2. Starting the Node
+---
+## Operating the Node
+
+### Starting the Node
 
 Start the node using Docker Compose:
 
@@ -103,7 +106,7 @@ docker compose --env-file .env up -d
 
 This will start both the execution client (op-geth) and consensus client (op-node).
 
-### 3. Monitoring Logs
+### Monitoring Logs
 
 View op-node logs:
 ```bash
@@ -117,7 +120,7 @@ docker compose logs -f geth
 ```
 
 
-### 4. Verifying Sync Status
+### Verifying Sync Status
 
 Check the sync status:
 
@@ -134,7 +137,7 @@ curl --location 'localhost:8545' \
 
 If the node is syncing, you'll see a response with sync progress details. When syncing is complete, it will return `{"jsonrpc":"2.0","id":2,"result":false}`.
 
-Check the current block number:
+Check the current block number after syncing:
 
 ```bash
 curl --location 'localhost:8545' \
@@ -147,7 +150,7 @@ curl --location 'localhost:8545' \
 ```
 
 
-### 5. Stopping the Node
+### Stopping the Node
 
 To stop the node:
 
@@ -174,7 +177,7 @@ The node can be configured through the `.env` file with the following key option
     | Chain Name | Swell Chain |
     | Chain ID | 1923 |
     | RPC URL | https://swell-mainnet.alt.technology |
-    | Block Explorer | https://swell-mainnet-explorer.alt.technology |
+    | Block Explorer | https://explorer.swellnetwork.io |
   </Tab>
   <Tab value="Testnet">
     | Parameter | Value |
