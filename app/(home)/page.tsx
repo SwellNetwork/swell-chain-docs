@@ -36,7 +36,7 @@ export default function HomePage() {
       <section className="container px-4 pb-16 flex-grow">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {/* Getting Started */}
-          <div className="rounded-lg border bg-card p-6 hover:border-border hover:border-blue-500">
+          <div className="rounded-lg border bg-card p-6 hover:border-blue-500">
             <Book className="mb-4 h-8 w-8 text-blue-500" />
             <h2 className="mb-2 text-xl font-bold">Welcome to Swell Chain</h2>
             <p className="mb-4 text-muted-foreground">
@@ -52,7 +52,7 @@ export default function HomePage() {
           </div>
 
           {/* Developer Guide */}
-          <div className="rounded-lg border bg-card p-6 hover:border-border hover:border-blue-500">
+          <div className="rounded-lg border bg-card p-6 hover:border-blue-500">
             <Code className="mb-4 h-8 w-8 text-blue-500" />
             <h2 className="mb-2 text-xl font-bold">Developer Guide</h2>
             <p className="mb-4 text-muted-foreground">
@@ -68,7 +68,7 @@ export default function HomePage() {
           </div>
 
           {/* Protocol Specs */}
-          <div className="rounded-lg border bg-card p-6 hover:border-border hover:border-blue-500">
+          <div className="rounded-lg border bg-card p-6 hover:border-blue-500">
             <Blocks className="mb-4 h-8 w-8 text-blue-500" />
             <h2 className="mb-2 text-xl font-bold">Protocol Specs</h2>
             <p className="mb-4 text-muted-foreground">
