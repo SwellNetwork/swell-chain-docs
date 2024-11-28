@@ -6,7 +6,7 @@ import LogoSvg from "@/public/images/logo.svg";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen flex flex-col">
       {/* Hero Section */}
       <section className="container px-4 py-12 md:py-24 lg:py-32">
         <div className="mx-auto max-w-3xl text-center">
@@ -33,7 +33,7 @@ export default function HomePage() {
       </section>
 
       {/* Main Content */}
-      <section className="container px-4 pb-16">
+      <section className="container px-4 pb-16 flex-grow">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {/* Getting Started */}
           <div className="rounded-lg border bg-card p-6">
@@ -86,7 +86,7 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-white/10">
+      <footer className="border-t border-white/10 mt-auto">
         <div className="container flex flex-col items-center justify-between gap-4 px-4 py-6 md:flex-row">
           <div className="text-sm text-gray-400">
             © 2024 Swell Network. All rights reserved.
