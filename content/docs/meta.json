@@ -11,6 +11,7 @@
         "developer-resources/contract-addresses",
         "guides/block-explorers",
         "guides/monitoring",
+        "node-operation/overview",
 
         "---📚 Guides & Tutorials---",
         "[Proof of Restake](https://www.swellnetwork.io/post/restakingyieldlayer)",
