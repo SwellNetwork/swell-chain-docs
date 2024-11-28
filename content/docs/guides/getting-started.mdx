@@ -5,6 +5,8 @@ description: Learn how to connect and start building on Swell Chain
 
 import { TypeTable } from 'fumadocs-ui/components/type-table';
 import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
+import { Card, Cards } from "@/components/card";
+import { Waypoints } from "lucide-react";
 
 ## Introduction
 
@@ -50,30 +52,19 @@ The networks can also be added through [ChainList](https://chainlist.org/?search
 ### Obtaining Test ETH
 
 1. Switch your wallet network to Swell Chain Testnet
-2. Navigate to the [Swell Faucet](https://faucet.swellnetwork.io) {/* TODO: Add link*/}
+2. Bridge ETH from Sepolia testnet using the [L1StandardBridgeProxy contract](https://sepolia.etherscan.io/address/0xebb79a1d00b2d489f53adee985a2ded2a3553f22)
 3. Connect your wallet and request testnet ETH
 
-### Asset Bridging
 
-The [Swell Bridge](https://bridge.swellnetwork.io) enables asset transfers between Ethereum and Swell Chain:
-
-```solidity
-// Bridge Contract Addresses
-interface IBridgeAddresses {
-    // Mainnet
-    address constant BRIDGE_MAINNET = 0x4200000000000000000000000000000000000010;
-    address constant WETH_MAINNET = 0x4200000000000000000000000000000000000006;
-    address constant USDT_MAINNET = 0x41a0bD84E65e75Bc30AFBbe6ea142eBBcc347542;
-
-    // Testnet  
-    address constant BRIDGE_TESTNET = 0xeBb79a1D00B2d489f53ADee985a2Ded2A3553F22;
-    address constant USDT_TESTNET = 0xfd665f836095Ed02fDBF3C4F24174D70DFD6b69c;
-}
-```
-
-### Bridging ERC20 Tokens
+### Bridging Assets
 
 The Standard Bridge contract enables asset transfers between Ethereum and Swell Chain through a lock-and-mint mechanism. 
+Please refer to the [Contract Addresses](/docs/developer-resources/contract-addresses) page for the addresses of the bridge and token contracts.
+
+<Callout type="warn">
+Please note that these addresses are subject to change. Always verify contract addresses through official sources before interacting with them.
+</Callout>
+
 
 To bridge assets, call the `bridgeERC20To()` function on the bridge contract with the following parameters: 
 <TypeTable
@@ -110,6 +101,21 @@ To bridge assets, call the `bridgeERC20To()` function on the bridge contract wit
     }
   }}
 />
+
+---
+
+### Bridge via Superbridge
+
+<Cards>
+  <Card
+    href="https://superbridge.swellnetwork.io/"
+    title="Swell Bridge"
+    icon={<Waypoints className="text-yellow-300" />}>
+    Use the Swell Bridge to bridge assets between Ethereum and Swell Chain
+  </Card>
+</Cards>
+
+---
 
 ### Bridging ETH
 

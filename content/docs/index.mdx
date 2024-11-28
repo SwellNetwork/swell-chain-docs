@@ -4,12 +4,12 @@ description: Swell Chain - The restaking chain powered by Proof of Restake
 ---
 
 import { Card, Cards } from "@/components/card";
+import { LinkCard, LinkCards } from "@/components/link-card";
 import { Code, Server, Waypoints, Network } from 'lucide-react';
-import { SiX, SiGithub, SiDiscord } from '@icons-pack/react-simple-icons';
 import Logo from '@/public/images/logo.svg';
 
 
-# Welcome to Swell Chain
+# Welcome to Swell Chains
 
 Welcome to the Swell Chain documentation. For information about the Swell community and governance, visit the [Swell Website](https://swellnetwork.io).
 
@@ -27,7 +27,8 @@ Start building on Swell Chain with these essential resources:
   </Card>
   <Card
     icon={<Server className="text-green-300" />} 
-    title="Run a Node (soon)"
+    href="/docs/node-operation/overview"
+    title="Run a Node"
   >
     Set up and operate a Swell Chain node
   </Card>
@@ -46,6 +47,8 @@ Start building on Swell Chain with these essential resources:
   </Card>
 </Cards>
 
+---
+
 ## Featured Developer Tools
 
 <Cards>
@@ -54,12 +57,6 @@ Start building on Swell Chain with these essential resources:
     title="Explorer"
   >
     See what's happening on Swell Chain
-  </Card>
-  <Card
-    href="https://faucet.swellnetwork.io"
-    title="Faucet"
-  >
-    Get testnet tokens for development
   </Card>
   <Card
     href="https://bridge.swellnetwork.io"
@@ -73,26 +70,62 @@ Start building on Swell Chain with these essential resources:
   >
     Check the status of Swell Chain's network
   </Card>
+  <Card
+    href="/docs/guides/getting-started#bridging-eth"
+    title="Faucet (soon)"
+  >
+    Please use the bridge contract.
+  </Card>
 </Cards>
-
----
 
 ## Start Building
 
-The documentation is organized into the following sections:
-
-[Core Concepts →](/docs/fundamentals/about-swell-chain)  
-Understanding Swell Chain's architecture and design
-
-[Guides →](/docs/guides/getting-started)  
-Step-by-step tutorials for building on Swell
-
-[Node Operation (soon) →](#)  
-Running and maintaining Swell Chain nodes
+<Cards>
+  <Card
+    href="/docs/fundamentals/about-swell-chain"
+    title="Core Concepts"
+  >
+    Understanding Swell Chain's architecture and design
+  </Card>
+  <Card
+    href="/docs/guides/getting-started" 
+    title="Guides"
+  >
+    Step-by-step tutorials for building on Swell
+  </Card>
+  <Card
+    href="#"
+    title="Node Operation"
+  >
+    Running and maintaining Swell Chain nodes
+  </Card>
+</Cards>
 
 ## Join the Community 
 
-- <SiDiscord size={16} className="inline-block align-text-bottom mr-2" /> [Discord](https://discord.gg/swellnetworkdao)
-- <SiGithub size={16} className="inline-block align-text-bottom mr-2" /> [GitHub](https://github.com/swellnetwork)
-- <SiX size={16} className="inline-block align-text-bottom mr-2" /> [X](https://x.com/swellnetworkio)
-- [Blog](https://blog.swellnetwork.io)
+<Cards>
+  <Card
+    href="https://discord.gg/swellnetworkdao"
+    title="Discord"
+  >
+    Join our community Discord server
+  </Card>
+  <Card
+    href="https://github.com/swellnetwork"
+    title="GitHub"
+  >
+    Explore and contribute to our open source code
+  </Card>
+  <Card
+    href="https://x.com/swellnetworkio"
+    title="X"
+  >
+    Follow us for the latest updates and announcements
+  </Card>
+  <Card
+    href="https://blog.swellnetwork.io"
+    title="Blog"
+    >
+    Read technical deep dives and project updates
+  </Card>
+</Cards>
