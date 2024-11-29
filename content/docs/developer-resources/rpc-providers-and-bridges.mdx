@@ -1,0 +1,139 @@
+---
+title: RPC Providers & Bridges 
+description: Available RPC endpoints and bridges for Swellchain
+---
+
+import { Card, Cards } from "@/components/card";
+import { Waypoints } from "lucide-react";
+import { TypeTable } from "@/components/type-table";
+
+## RPC Provider
+
+To connect to Swellchain, you can use the following RPC providers:
+
+### AltLayer RPC
+
+| Network | HTTPS Endpoint |
+| --- | --- |
+| Mainnet | https://swell-mainnet.alt.technology |
+| Testnet | https://swell-testnet.alt.technology |
+
+More information: [AltLayer Docs](https://docs.altlayer.io/altlayer-documentation)
+
+
+### Ankr RPC
+
+| Network | HTTPS Endpoint |
+| --- | --- |
+| Mainnet | https://rpc.ankr.com/swell |
+| Testnet | https://rpc.ankr.com/swell-testnet |
+
+More information: [Ankr Docs](https://www.ankr.com/docs/)
+
+<Callout type="info">
+You can add the network to your wallet and see additional RPC endpoints on [ChainList](https://chainlist.org/?search=swell&testnets=true).
+</Callout>
+
+---
+
+## Bridges
+
+
+### Bridge via Superbridge
+
+<Cards>
+  <Card
+    href="https://superbridge.swellnetwork.io/"
+    title="Swell Bridge"
+    icon={<Waypoints className="text-yellow-300" />}>
+    Use the Swell Bridge to bridge assets between Ethereum and Swellchain
+  </Card>
+</Cards>
+
+### Bridging Assets
+
+The Standard Bridge contract enables asset transfers between Ethereum and Swellchain through a lock-and-mint mechanism. 
+Please refer to the [Contract Addresses](/docs/developer-resources/contract-addresses) page for the addresses of the bridge and token contracts.
+
+<Callout type="warn">
+Please note that these addresses are subject to change. Always verify contract addresses through official sources before interacting with them.
+</Callout>
+
+
+To bridge assets, call the `bridgeERC20To()` function on the bridge contract with the following parameters: 
+<TypeTable
+  type={{
+    sourceToken: {
+      description: 'The address of the token to bridge on the source chain',
+      type: 'address',
+      default: '-'
+    },
+    destinationToken: {
+      description: 'The address of the token to mint on the destination chain',
+      type: 'address', 
+      default: '-'
+    },
+    recipient: {
+      description: 'The address to receive the bridged tokens',
+      type: 'address',
+      default: '-'
+    },
+    amount: {
+      description: 'The amount of tokens to bridge',
+      type: 'uint256',
+      default: '-'
+    },
+    gasLimit: {
+      description: 'Minimum gas limit for the bridge transaction',
+      type: 'uint256',
+      default: '-'
+    },
+    extraData: {
+      description: 'Optional additional data for the bridge transaction',
+      type: 'bytes',
+      default: '0x'
+    }
+  }}
+/>
+
+---
+
+### Bridging ETH
+
+To bridge ETH between Ethereum and Swellchain, call the `bridgeETH()` or `bridgeETHTo()` functions on the bridge contract:
+
+<TypeTable
+  type={{
+    recipient: {
+      description: 'The address to receive the bridged ETH (only for bridgeETHTo)',
+      type: 'address',
+      default: '-'
+    },
+    gasLimit: {
+      description: 'Minimum gas limit for the bridge transaction',
+      type: 'uint256',
+      default: '-'
+    },
+    extraData: {
+      description: 'Optional additional data for the bridge transaction',
+      type: 'bytes',
+      default: '0x'
+    }
+  }}
+/>
+
+<Callout type="info">
+You can also bridge by sending a basic ETH transfer from an EOA directly to the Bridge Contract address.
+This is possible because the Bridge Contract includes a receive function that enables direct ETH transfers from an EOA on Ethereum to Swellchain without calling specific bridge functions.
+Find the contract addresses for mainnet and testnet in the [Contract Addresses](/docs/developer-resources/contract-addresses) section.
+</Callout>
+
+
+
+### Bridge Mechanics
+
+The bridge locks the tokens on the source chain and mints equivalent tokens on the destination chain. 
+Transfers from Ethereum to Swellchain complete in 1-3 minutes, while transfers back to Ethereum have a 7-day challenge period.
+
+
+For more information on bridging assets via the Standard Bridge Contract, refer to the [Standard Bridge documentation](https://docs.optimism.io/builders/app-developers/bridging/standard-bridge).

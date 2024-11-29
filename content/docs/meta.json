@@ -7,7 +7,7 @@
         
         "---🛠️ Build on Swell---",
         "guides/getting-started",
-        "developer-resources/rpc-providers",
+        "developer-resources/rpc-providers-and-bridges",
         "developer-resources/contract-addresses",
         "guides/block-explorers",
         "node-operation/overview",
@@ -19,6 +19,11 @@
         "---💬 Community---",
         "[Discord](https://discord.gg/swellnetworkdao)",
         "[GitHub](https://github.com/swellnetwork)",
-        "[X](https://x.com/swellnetworkio)"
+        "[X](https://x.com/swellnetworkio)",
+
+        "--- Quick Links---",
+        "[Explorer](https://explorer.swellnetwork.io)",
+        "[Bridge](https://superbridge.swellnetwork.io)",
+        "[Network Status](https://swell-mainnet-status.alt.technology)"
     ]
 }
