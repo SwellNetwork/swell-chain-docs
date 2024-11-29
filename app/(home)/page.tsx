@@ -19,7 +19,7 @@ export default function HomePage() {
                 width={32}
                 height={32}
               />
-              Swell Chain
+              Swellchain
             </span>
             {" - The restaking chain powered by "}
             <span className="bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
@@ -38,7 +38,7 @@ export default function HomePage() {
           {/* Getting Started */}
           <div className="rounded-lg border bg-card p-6 hover:border-blue-500">
             <Book className="mb-4 h-8 w-8 text-blue-500" />
-            <h2 className="mb-2 text-xl font-bold">Welcome to Swell Chain</h2>
+            <h2 className="mb-2 text-xl font-bold">Welcome to Swellchain</h2>
             <p className="mb-4 text-muted-foreground">
               New to Swell? Start here for a comprehensive introduction to our
               platform.
