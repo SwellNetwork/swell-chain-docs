@@ -1,6 +1,6 @@
 ---
 title: Getting Started
-description: Learn how to connect and start building on Swell Chain
+description: Learn how to connect and start building on Swellchain
 ---
 
 import { TypeTable } from 'fumadocs-ui/components/type-table';
@@ -12,23 +12,23 @@ import { Waypoints } from "lucide-react";
 
 In this guide, we will cover the following:
 1. Setting up your wallet and network configuration
-2. Bridging assets between Ethereum and Swell Chain
+2. Bridging assets between Ethereum and Swellchain
 3. Obtaining testnet funds for development
 4. Deploying smart contracts to the network
 5. Interacting with deployed contracts
 
-This will enable you to get a feel of the Swell Chain and start building on top of it.
+This will enable you to get a feel of the Swellchain and start building on top of it.
 
 ## Network Configuration
 
-To interact with Swell Chain, you need to add the following networks to your wallet:
+To interact with Swellchain, you need to add the following networks to your wallet:
 
 
 <Tabs items={['Mainnet', 'Testnet']} groupId="network" persist>
   <Tab value="Mainnet">
     | Parameter | Value |
     | --- | --- |
-    | Chain Name | Swell Chain |
+    | Chain Name | Swellchain |
     | Chain ID | 1923 |
     | RPC URL | https://explorer.swellnetwork.io |
     | Block Explorer | https://swell-mainnet-explorer.alt.technology |
@@ -36,7 +36,7 @@ To interact with Swell Chain, you need to add the following networks to your wal
   <Tab value="Testnet">
     | Parameter | Value |
     | --- | --- |
-    | Chain Name | Swell Chain Testnet |
+    | Chain Name | Swellchain Testnet |
     | Chain ID | 1924 |
     | RPC URL | https://swell-testnet.alt.technology |
     | Block Explorer | https://swell-testnet-explorer.alt.technology |
@@ -51,14 +51,14 @@ The networks can also be added through [ChainList](https://chainlist.org/?search
 
 ### Obtaining Test ETH
 
-1. Switch your wallet network to Swell Chain Testnet
+1. Switch your wallet network to Swellchain Testnet
 2. Bridge ETH from Sepolia testnet using the [L1StandardBridgeProxy contract](https://sepolia.etherscan.io/address/0xebb79a1d00b2d489f53adee985a2ded2a3553f22)
 3. Connect your wallet and request testnet ETH
 
 
 ### Bridging Assets
 
-The Standard Bridge contract enables asset transfers between Ethereum and Swell Chain through a lock-and-mint mechanism. 
+The Standard Bridge contract enables asset transfers between Ethereum and Swellchain through a lock-and-mint mechanism. 
 Please refer to the [Contract Addresses](/docs/developer-resources/contract-addresses) page for the addresses of the bridge and token contracts.
 
 <Callout type="warn">
@@ -111,7 +111,7 @@ To bridge assets, call the `bridgeERC20To()` function on the bridge contract wit
     href="https://superbridge.swellnetwork.io/"
     title="Swell Bridge"
     icon={<Waypoints className="text-yellow-300" />}>
-    Use the Swell Bridge to bridge assets between Ethereum and Swell Chain
+    Use the Swell Bridge to bridge assets between Ethereum and Swellchain
   </Card>
 </Cards>
 
@@ -119,7 +119,7 @@ To bridge assets, call the `bridgeERC20To()` function on the bridge contract wit
 
 ### Bridging ETH
 
-To bridge ETH between Ethereum and Swell Chain, call the `bridgeETH()` or `bridgeETHTo()` functions on the bridge contract:
+To bridge ETH between Ethereum and Swellchain, call the `bridgeETH()` or `bridgeETHTo()` functions on the bridge contract:
 
 <TypeTable
   type={{
@@ -143,7 +143,7 @@ To bridge ETH between Ethereum and Swell Chain, call the `bridgeETH()` or `bridg
 
 <Callout type="info">
 You can also bridge by sending a basic ETH transfer from an EOA directly to the Bridge Contract address.
-This is possible because the Bridge Contract includes a receive function that enables direct ETH transfers from an EOA on Ethereum to Swell Chain without calling specific bridge functions.
+This is possible because the Bridge Contract includes a receive function that enables direct ETH transfers from an EOA on Ethereum to Swellchain without calling specific bridge functions.
 Find the contract addresses for mainnet and testnet in the [Contract Addresses](/docs/developer-resources/contract-addresses) section.
 </Callout>
 
@@ -152,7 +152,7 @@ Find the contract addresses for mainnet and testnet in the [Contract Addresses](
 ### Bridge Mechanics
 
 The bridge locks the tokens on the source chain and mints equivalent tokens on the destination chain. 
-Transfers from Ethereum to Swell Chain complete in 1-3 minutes, while transfers back to Ethereum have a 7-day challenge period.
+Transfers from Ethereum to Swellchain complete in 1-3 minutes, while transfers back to Ethereum have a 7-day challenge period.
 
 
 For more information on bridging assets via the Standard Bridge Contract, refer to the [Standard Bridge documentation](https://docs.optimism.io/builders/app-developers/bridging/standard-bridge).
@@ -161,7 +161,7 @@ For more information on bridging assets via the Standard Bridge Contract, refer 
 
 ## Smart Contract Development
 
-Let's deploy your first contract on Swell Chain.
+Let's deploy your first contract on Swellchain.
 Use the following code as a template. 
 It is a simple counter contract that can be incremented and decremented.
 
@@ -196,7 +196,7 @@ Open in the [Remix IDE](https://remix.ethereum.org/?#code=Ly8gU1BEWC1MaWNlbnNlLU
 
 ## Network Architecture
 
-Swell Chain combines the Optimism Superchain with AltLayer's restaking infrastructure:
+Swellchain combines the Optimism Superchain with AltLayer's restaking infrastructure:
 
 ### Core Components
 
@@ -210,7 +210,7 @@ These services leverage Ethereum's security through EigenLayer's restaking mecha
 
 ## Transaction Fees
 
-Swell Chain transactions include two components:
+Swellchain transactions include two components:
 
 1. **L2 Execution Fee**: Cost for transaction execution on L2
 2. **L1 Security Fee**: Estimated cost for L1 publication
