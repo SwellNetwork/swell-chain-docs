@@ -28,10 +28,10 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
-    --navbar-bg: #010508;
+    --navbar-bg: #ffffff;
   }
   .dark {
-    --background: 0 0% 3.9%;
+    --background: 0 0% 2%;
     --foreground: 0 0% 98%;
     --card: 0 0% 3.9%;
     --card-foreground: 0 0% 98%;
@@ -54,7 +54,8 @@
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%
+    --chart-5: 340 75% 55%;
+    --navbar-bg: #010508;
   }
 }
 @layer base {
@@ -64,6 +65,60 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Base background styles */
+body {
+  background-image: 
+    radial-gradient(
+      circle at 50% -100%,
+      rgb(164, 171, 241, 0.1) 0%,
+      rgba(164, 171, 241, 0) 50%
+    ),
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(164, 171, 241, 0.05) 0%,
+      rgba(164, 171, 241, 0) 50%
+    );
+  background-color: #ffffff; /* Light mode default */
+  min-height: 100vh;
+}
+
+/* Grid pattern overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: 
+    linear-gradient(to right, #a4abf1 1px, transparent 1px),
+    linear-gradient(to bottom, #a4abf1 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.03;
+  z-index: -1;
+}
+
+/* Dark mode overrides */
+.dark body {
+  background-color: #010508;
+  background-image: 
+    radial-gradient(
+      circle at 50% -100%,
+      rgb(164, 171, 241, 0.15) 0%,
+      rgba(164, 171, 241, 0) 50%
+    ),
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(164, 171, 241, 0.1) 0%,
+      rgba(164, 171, 241, 0) 50%
+    );
+}
+
+.dark body::before {
+  opacity: 0.05;
 }
 
 header {
@@ -80,6 +135,8 @@ nav {
   gap: 24px;
   background: var(--navbar-bg);
   border-radius: 18px;
+  --search-bg: rgba(0, 0, 0, 0.05);
+  --toggle-color: #333333;
 }
 
 nav a {
@@ -129,4 +186,33 @@ nav .flex-1 {
   align-items: center;
   justify-content: flex-end;
   gap: 6px;
+}
+
+/* navbar toggles */
+nav [data-theme-toggle],
+nav [data-command-palette] {
+  color: var(--toggle-color);
+  background: var(--search-bg);
+  border-radius: 18px;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+nav [data-command-palette] {
+  gap: 6px;
+  padding: 6px 12px;
+}
+
+/* hover states */
+nav [data-theme-toggle]:hover,
+nav [data-command-palette]:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Dark mode overrides for navbar */
+.dark nav {
+  --search-bg: rgba(255, 255, 255, 0.05);
+  --toggle-color: #B0B0B0;
 }

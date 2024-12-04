@@ -1,8 +1,11 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Book, Code, Blocks, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import LogoSvg from "@/public/images/logo.svg";
+import Book from "@/public/images/icons/book.svg";
+import BracketsAngle from "@/public/images/icons/bracketsAngle.svg";
+import SquaresFour from "@/public/images/icons/squaresFour.svg";
 
 export default function HomePage() {
   return (
@@ -32,25 +35,25 @@ export default function HomePage() {
       <section className="container px-4 pb-16 flex-grow">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {/* Getting Started */}
-          <div className="h-[251px] p-6 bg-[#010508] rounded-xl border border-[#a4abf1]/20 flex-col justify-start items-start gap-4 inline-flex hover:border-blue-500">
+          <div className="h-[251px] p-6 bg-card rounded-xl border border-border flex-col justify-start items-start gap-4 inline-flex hover:border-blue-500">
             <div className="w-8 h-8 relative">
-              <Book className="text-blue-500" />
+              <Image src={Book} alt="Welcome to Swellchain" />
             </div>
-            <div className="self-stretch text-white text-2xl font-semibold font-['Inter'] leading-[28.80px]">
+            <div className="self-stretch text-foreground text-2xl font-semibold font-['Inter'] leading-[28.80px]">
               Welcome to Swellchain
             </div>
-            <div className="self-stretch text-[#b0b0b0] text-base font-medium font-['Inter'] leading-relaxed">
+            <div className="self-stretch text-muted-foreground text-base font-medium font-['Inter'] leading-relaxed">
               New to Swell? Start here for a comprehensive introduction to our
               platform.
             </div>
             <div className="justify-start items-center inline-flex">
               <Link href="/docs/">
-                <div className="h-[42px] rounded-[10px] justify-center items-center flex">
-                  <div className="grow shrink basis-0 h-[42px] px-4 py-2 rounded-[10px] border border-[#e7e7e7] justify-center items-center gap-2 flex">
-                    <div className="text-center text-white text-base font-medium font-['Inter'] leading-relaxed">
+                <div className="h-[42px] rounded-[10px] justify-center items-center flex group">
+                  <div className="grow shrink basis-0 h-[42px] px-4 py-2 rounded-[10px] border border-border justify-center items-center gap-2 flex hover:bg-accent">
+                    <div className="text-center text-foreground text-base font-medium font-['Inter'] leading-relaxed">
                       Learn more
                     </div>
-                    <ArrowRight className="w-[18px] h-[18px] relative shadow transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </div>
                 </div>
               </Link>
@@ -58,45 +61,53 @@ export default function HomePage() {
           </div>
 
           {/* Developer Guide */}
-          <div className="h-[251px] p-6 bg-[#010508] rounded-xl border border-[#a4abf1]/20 flex-col justify-start items-start gap-4 inline-flex hover:border-blue-500">
+          <div className="h-[251px] p-6 bg-card rounded-xl border border-border flex-col justify-start items-start gap-4 inline-flex hover:border-blue-500">
             <div className="w-8 h-8 relative">
-              <Code className="text-blue-500" />
+              <Image src={BracketsAngle} alt="Developer Guide" />
             </div>
-            <div className="self-stretch text-white text-2xl font-semibold font-['Inter'] leading-[28.80px]">
+            <div className="self-stretch text-foreground text-2xl font-semibold font-['Inter'] leading-[28.80px]">
               Developer Guide
             </div>
-            <div className="self-stretch text-[#b0b0b0] text-base font-medium font-['Inter'] leading-relaxed">
+            <div className="self-stretch text-muted-foreground text-base font-medium font-['Inter'] leading-relaxed">
               Technical documentation, APIs, and tools for building on Swell
               Network.
             </div>
             <div className="justify-start items-center inline-flex">
               <Link href="/docs/guides/getting-started">
-                <Button variant="outline" className="group">
-                  View Guide
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Button>
+                <div className="h-[42px] rounded-[10px] justify-center items-center flex group">
+                  <div className="grow shrink basis-0 h-[42px] px-4 py-2 rounded-[10px] border border-border justify-center items-center gap-2 flex hover:bg-accent">
+                    <div className="text-center text-foreground text-base font-medium font-['Inter'] leading-relaxed">
+                      View Guide
+                    </div>
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </div>
+                </div>
               </Link>
             </div>
           </div>
 
           {/* Protocol Specs */}
-          <div className="h-[251px] p-6 bg-[#010508] rounded-xl border border-[#a4abf1]/20 flex-col justify-start items-start gap-4 inline-flex hover:border-blue-500">
+          <div className="h-[251px] p-6 bg-card rounded-xl border border-border flex-col justify-start items-start gap-4 inline-flex hover:border-blue-500">
             <div className="w-8 h-8 relative">
-              <Blocks className="text-blue-500" />
+              <Image src={SquaresFour} alt="Protocol Specs" />
             </div>
-            <div className="self-stretch text-white text-2xl font-semibold font-['Inter'] leading-[28.80px]">
+            <div className="self-stretch text-foreground text-2xl font-semibold font-['Inter'] leading-[28.80px]">
               Protocol Specs
             </div>
-            <div className="self-stretch text-[#b0b0b0] text-base font-medium font-['Inter'] leading-relaxed">
+            <div className="self-stretch text-muted-foreground text-base font-medium font-['Inter'] leading-relaxed">
               Detailed specifications of the Swell Network protocol and
               architecture.
             </div>
             <div className="justify-start items-center inline-flex">
               <Link href="/docs/fundamentals/about-swell-chain">
-                <Button variant="outline" className="group">
-                  Explore Specs
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Button>
+                <div className="h-[42px] rounded-[10px] justify-center items-center flex group">
+                  <div className="grow shrink basis-0 h-[42px] px-4 py-2 rounded-[10px] border border-border justify-center items-center gap-2 flex hover:bg-accent">
+                    <div className="text-center text-foreground text-base font-medium font-['Inter'] leading-relaxed">
+                      Explore Specs
+                    </div>
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </div>
+                </div>
               </Link>
             </div>
           </div>
@@ -110,14 +121,17 @@ export default function HomePage() {
             © 2024 Swell Network. All rights reserved.
           </div>
           <div className="flex gap-4">
-            <Link href="#" className="text-sm text-gray-400 hover:text-white">
+            <Link
+              href="https://www.swellnetwork.io/legal/terms-of-service"
+              className="text-sm text-gray-400 hover:text-white"
+            >
               Terms
             </Link>
-            <Link href="#" className="text-sm text-gray-400 hover:text-white">
+            <Link
+              href="https://www.swellnetwork.io/legal/privacy-policy"
+              className="text-sm text-gray-400 hover:text-white"
+            >
               Privacy
-            </Link>
-            <Link href="#" className="text-sm text-gray-400 hover:text-white">
-              Contact
             </Link>
           </div>
         </div>
