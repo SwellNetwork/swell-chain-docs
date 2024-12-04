@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import LogoSvg from "@/public/images/logo.svg";
@@ -11,22 +10,20 @@ export default function HomePage() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Hero Section */}
-      <section className="container px-4 py-12 md:py-24 lg:py-32">
+      <section className="container px-4 pt-[268px] pb-12 md:pb-24 lg:pb-32">
         <div className="mx-auto max-w-3xl text-center">
-          <h1 className="mb-6 text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
-            <span className="inline-flex items-center gap-2">
-              <Image
-                src={LogoSvg}
-                alt="Swell Logo"
-                className="h-8 w-8 md:h-10 md:w-10"
-                width={64}
-                height={64}
-              />
-              Swellchain Build
-            </span>
+          <h1 className="mb-6 flex items-center justify-center gap-4 text-[80px] font-semibold tracking-[-2.4px] leading-[110%] font-['Inter']">
+            <Image
+              src={LogoSvg}
+              alt="Swell Logo"
+              className="h-[88px] w-[88px]"
+              width={88}
+              height={88}
+            />
+            <span className="text-foreground">Swellchain Build</span>
           </h1>
-          <p className="mb-8 text-xl text-muted-foreground">
-            Learn how to integrate, build, and scale with Swell Network
+          <p className="mb-8 text-xl text-muted-foreground pt-[42px]">
+            Learn how to integrate, build, and scale with Swellchain.
           </p>
         </div>
       </section>
@@ -49,7 +46,7 @@ export default function HomePage() {
             <div className="justify-start items-center inline-flex">
               <Link href="/docs/">
                 <div className="h-[42px] rounded-[10px] justify-center items-center flex group">
-                  <div className="grow shrink basis-0 h-[42px] px-4 py-2 rounded-[10px] border border-border justify-center items-center gap-2 flex hover:bg-accent">
+                  <div className="grow shrink basis-0 h-[42px] px-4 py-2 rounded-[10px] border border-border dark:border-white justify-center items-center gap-2 flex hover:bg-accent">
                     <div className="text-center text-foreground text-base font-medium font-['Inter'] leading-relaxed">
                       Learn more
                     </div>
@@ -75,7 +72,7 @@ export default function HomePage() {
             <div className="justify-start items-center inline-flex">
               <Link href="/docs/guides/getting-started">
                 <div className="h-[42px] rounded-[10px] justify-center items-center flex group">
-                  <div className="grow shrink basis-0 h-[42px] px-4 py-2 rounded-[10px] border border-border justify-center items-center gap-2 flex hover:bg-accent">
+                  <div className="grow shrink basis-0 h-[42px] px-4 py-2 rounded-[10px] border border-border dark:border-white justify-center items-center gap-2 flex hover:bg-accent">
                     <div className="text-center text-foreground text-base font-medium font-['Inter'] leading-relaxed">
                       View Guide
                     </div>
@@ -101,7 +98,7 @@ export default function HomePage() {
             <div className="justify-start items-center inline-flex">
               <Link href="/docs/fundamentals/about-swell-chain">
                 <div className="h-[42px] rounded-[10px] justify-center items-center flex group">
-                  <div className="grow shrink basis-0 h-[42px] px-4 py-2 rounded-[10px] border border-border justify-center items-center gap-2 flex hover:bg-accent">
+                  <div className="grow shrink basis-0 h-[42px] px-4 py-2 rounded-[10px] border border-border dark:border-white justify-center items-center gap-2 flex hover:bg-accent">
                     <div className="text-center text-foreground text-base font-medium font-['Inter'] leading-relaxed">
                       Explore Specs
                     </div>
