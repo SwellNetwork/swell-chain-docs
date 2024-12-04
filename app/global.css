@@ -71,7 +71,7 @@
 body {
   background-image: 
     radial-gradient(
-      circle at 50% -100%,
+      circle at 50% -50%,
       rgb(164, 171, 241, 0.1) 0%,
       rgba(164, 171, 241, 0) 50%
     ),
@@ -80,8 +80,9 @@ body {
       rgba(164, 171, 241, 0.05) 0%,
       rgba(164, 171, 241, 0) 50%
     );
-  background-color: #ffffff; /* Light mode default */
+  background-color: #ffffff;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 /* Grid pattern overlay */
@@ -96,9 +97,16 @@ body::before {
   background-image: 
     linear-gradient(to right, #a4abf1 1px, transparent 1px),
     linear-gradient(to bottom, #a4abf1 1px, transparent 1px);
-  background-size: 24px 24px;
+  background-size: 16px 16px;
   opacity: 0.03;
   z-index: -1;
+}
+
+/* Adjust grid size for larger screens */
+@media (min-width: 768px) {
+  body::before {
+    background-size: 24px 24px;
+  }
 }
 
 /* Dark mode overrides */
@@ -137,6 +145,15 @@ nav {
   border-radius: 18px;
   --search-bg: rgba(0, 0, 0, 0.05);
   --toggle-color: #333333;
+}
+
+/* Add mobile-specific nav positioning */
+@media (max-width: 768px) {
+  header {
+    margin-top: 0 !important;
+  }
+
+
 }
 
 nav a {
