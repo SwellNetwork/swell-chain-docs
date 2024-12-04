@@ -16,14 +16,10 @@ export default function HomePage() {
                 src={LogoSvg}
                 alt="Swell Logo"
                 className="h-8 w-8 md:h-10 md:w-10"
-                width={32}
-                height={32}
+                width={64}
+                height={64}
               />
-              Swellchain
-            </span>
-            {" - The restaking chain powered by "}
-            <span className="bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
-              Proof of Restake
+              Swellchain Build
             </span>
           </h1>
           <p className="mb-8 text-xl text-muted-foreground">
@@ -36,51 +32,73 @@ export default function HomePage() {
       <section className="container px-4 pb-16 flex-grow">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {/* Getting Started */}
-          <div className="rounded-lg border bg-card p-6 hover:border-blue-500">
-            <Book className="mb-4 h-8 w-8 text-blue-500" />
-            <h2 className="mb-2 text-xl font-bold">Welcome to Swellchain</h2>
-            <p className="mb-4 text-muted-foreground">
+          <div className="h-[251px] p-6 bg-[#010508] rounded-xl border border-[#a4abf1]/20 flex-col justify-start items-start gap-4 inline-flex hover:border-blue-500">
+            <div className="w-8 h-8 relative">
+              <Book className="text-blue-500" />
+            </div>
+            <div className="self-stretch text-white text-2xl font-semibold font-['Inter'] leading-[28.80px]">
+              Welcome to Swellchain
+            </div>
+            <div className="self-stretch text-[#b0b0b0] text-base font-medium font-['Inter'] leading-relaxed">
               New to Swell? Start here for a comprehensive introduction to our
               platform.
-            </p>
-            <Link href="/docs/">
-              <Button variant="outline" className="group">
-                Learn More
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-            </Link>
+            </div>
+            <div className="justify-start items-center inline-flex">
+              <Link href="/docs/">
+                <div className="h-[42px] rounded-[10px] justify-center items-center flex">
+                  <div className="grow shrink basis-0 h-[42px] px-4 py-2 rounded-[10px] border border-[#e7e7e7] justify-center items-center gap-2 flex">
+                    <div className="text-center text-white text-base font-medium font-['Inter'] leading-relaxed">
+                      Learn more
+                    </div>
+                    <ArrowRight className="w-[18px] h-[18px] relative shadow transition-transform group-hover:translate-x-1" />
+                  </div>
+                </div>
+              </Link>
+            </div>
           </div>
 
           {/* Developer Guide */}
-          <div className="rounded-lg border bg-card p-6 hover:border-blue-500">
-            <Code className="mb-4 h-8 w-8 text-blue-500" />
-            <h2 className="mb-2 text-xl font-bold">Developer Guide</h2>
-            <p className="mb-4 text-muted-foreground">
+          <div className="h-[251px] p-6 bg-[#010508] rounded-xl border border-[#a4abf1]/20 flex-col justify-start items-start gap-4 inline-flex hover:border-blue-500">
+            <div className="w-8 h-8 relative">
+              <Code className="text-blue-500" />
+            </div>
+            <div className="self-stretch text-white text-2xl font-semibold font-['Inter'] leading-[28.80px]">
+              Developer Guide
+            </div>
+            <div className="self-stretch text-[#b0b0b0] text-base font-medium font-['Inter'] leading-relaxed">
               Technical documentation, APIs, and tools for building on Swell
               Network.
-            </p>
-            <Link href="/docs/guides/getting-started">
-              <Button variant="outline" className="group">
-                View Guide
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-            </Link>
+            </div>
+            <div className="justify-start items-center inline-flex">
+              <Link href="/docs/guides/getting-started">
+                <Button variant="outline" className="group">
+                  View Guide
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </Link>
+            </div>
           </div>
 
           {/* Protocol Specs */}
-          <div className="rounded-lg border bg-card p-6 hover:border-blue-500">
-            <Blocks className="mb-4 h-8 w-8 text-blue-500" />
-            <h2 className="mb-2 text-xl font-bold">Protocol Specs</h2>
-            <p className="mb-4 text-muted-foreground">
+          <div className="h-[251px] p-6 bg-[#010508] rounded-xl border border-[#a4abf1]/20 flex-col justify-start items-start gap-4 inline-flex hover:border-blue-500">
+            <div className="w-8 h-8 relative">
+              <Blocks className="text-blue-500" />
+            </div>
+            <div className="self-stretch text-white text-2xl font-semibold font-['Inter'] leading-[28.80px]">
+              Protocol Specs
+            </div>
+            <div className="self-stretch text-[#b0b0b0] text-base font-medium font-['Inter'] leading-relaxed">
               Detailed specifications of the Swell Network protocol and
               architecture.
-            </p>
-            <Link href="/docs/fundamentals/about-swell-chain">
-              <Button variant="outline" className="group">
-                Explore Specs
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-            </Link>
+            </div>
+            <div className="justify-start items-center inline-flex">
+              <Link href="/docs/fundamentals/about-swell-chain">
+                <Button variant="outline" className="group">
+                  Explore Specs
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
