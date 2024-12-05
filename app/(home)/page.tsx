@@ -43,7 +43,7 @@ export default function HomePage() {
               New to Swell? Start here for a comprehensive introduction to our
               platform.
             </div>
-            <div className="justify-start items-center inline-flex">
+            <div className="home-card-button justify-start items-center inline-flex">
               <Link href="/docs/">
                 <div className="h-[42px] rounded-[10px] justify-center items-center flex group">
                   <div className="grow shrink basis-0 h-[42px] px-4 py-2 rounded-[10px] border border-border dark:border-white justify-center items-center gap-2 flex hover:bg-accent">
@@ -69,7 +69,7 @@ export default function HomePage() {
               Technical documentation, APIs, and tools for building on Swell
               Network.
             </div>
-            <div className="justify-start items-center inline-flex">
+            <div className="home-card-button justify-start items-center inline-flex">
               <Link href="/docs/guides/getting-started">
                 <div className="h-[42px] rounded-[10px] justify-center items-center flex group">
                   <div className="grow shrink basis-0 h-[42px] px-4 py-2 rounded-[10px] border border-border dark:border-white justify-center items-center gap-2 flex hover:bg-accent">
@@ -95,7 +95,7 @@ export default function HomePage() {
               Detailed specifications of the Swell Network protocol and
               architecture.
             </div>
-            <div className="justify-start items-center inline-flex">
+            <div className="home-card-button justify-start items-center inline-flex">
               <Link href="/docs/fundamentals/about-swell-chain">
                 <div className="h-[42px] rounded-[10px] justify-center items-center flex group">
                   <div className="grow shrink basis-0 h-[42px] px-4 py-2 rounded-[10px] border border-border dark:border-white justify-center items-center gap-2 flex hover:bg-accent">

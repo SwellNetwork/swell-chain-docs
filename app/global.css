@@ -205,6 +205,23 @@ nav .flex-1 {
   gap: 6px;
 }
 
+/* Home page card button styling */
+@media (max-width: 768px) {
+  .home-card-button {
+    font-size: 12px;
+    background-color: red !important; 
+  }
+
+  .home-card-button > div {
+    height: 20px !important;
+    padding: 0 16px; 
+  }
+
+  .home-card-button svg {
+    width: 16px; 
+    height: 16px;
+  }
+}
 /* navbar toggles */
 nav [data-theme-toggle],
 nav [data-command-palette] {
