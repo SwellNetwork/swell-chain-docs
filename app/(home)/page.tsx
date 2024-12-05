@@ -40,8 +40,7 @@ export default function HomePage() {
               Welcome to Swellchain
             </div>
             <div className="self-stretch text-muted-foreground text-base font-medium font-['Inter'] leading-relaxed">
-              New to Swell? Start here for a comprehensive introduction to our
-              platform.
+              New to Swell? Start here for a comprehensive introduction.
             </div>
             <div className="home-card-button justify-start items-center inline-flex">
               <Link href="/docs/">
