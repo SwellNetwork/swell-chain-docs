@@ -209,7 +209,6 @@ nav .flex-1 {
 @media (max-width: 768px) {
   .home-card-button {
     font-size: 12px;
-    background-color: red !important; 
   }
 
   .home-card-button > div {
