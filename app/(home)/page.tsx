@@ -10,19 +10,19 @@ export default function HomePage() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Hero Section */}
-      <section className="container px-4 pt-[268px] pb-12 md:pb-24 lg:pb-32">
+      <section className="container px-4 pt-[120px] md:pt-[268px] pb-12 md:pb-24 lg:pb-32">
         <div className="mx-auto max-w-3xl text-center">
-          <h1 className="mb-6 flex items-center justify-center gap-4 text-[80px] font-semibold tracking-[-2.4px] leading-[110%] font-['Inter']">
+          <h1 className="mb-6 flex items-center justify-center gap-2 md:gap-4 text-4xl md:text-[80px] font-semibold tracking-[-1px] md:tracking-[-2.4px] leading-[110%] font-['Inter']">
             <Image
               src={LogoSvg}
               alt="Swell Logo"
-              className="h-[88px] w-[88px]"
+              className="h-[44px] w-[44px] md:h-[88px] md:w-[88px]"
               width={88}
               height={88}
             />
             <span className="text-foreground">Swellchain Build</span>
           </h1>
-          <p className="mb-8 text-xl text-muted-foreground pt-[42px]">
+          <p className="mb-8 text-lg md:text-xl text-muted-foreground pt-4 md:pt-[42px]">
             Learn how to integrate, build, and scale with Swellchain.
           </p>
         </div>
@@ -40,10 +40,9 @@ export default function HomePage() {
               Welcome to Swellchain
             </div>
             <div className="self-stretch text-muted-foreground text-base font-medium font-['Inter'] leading-relaxed">
-              New to Swell? Start here for a comprehensive introduction to our
-              platform.
+              New to Swell? Start here for a comprehensive introduction.
             </div>
-            <div className="justify-start items-center inline-flex">
+            <div className="home-card-button justify-start items-center inline-flex">
               <Link href="/docs/">
                 <div className="h-[42px] rounded-[10px] justify-center items-center flex group">
                   <div className="grow shrink basis-0 h-[42px] px-4 py-2 rounded-[10px] border border-border dark:border-white justify-center items-center gap-2 flex hover:bg-accent">
@@ -69,7 +68,7 @@ export default function HomePage() {
               Technical documentation, APIs, and tools for building on Swell
               Network.
             </div>
-            <div className="justify-start items-center inline-flex">
+            <div className="home-card-button justify-start items-center inline-flex">
               <Link href="/docs/guides/getting-started">
                 <div className="h-[42px] rounded-[10px] justify-center items-center flex group">
                   <div className="grow shrink basis-0 h-[42px] px-4 py-2 rounded-[10px] border border-border dark:border-white justify-center items-center gap-2 flex hover:bg-accent">
@@ -95,7 +94,7 @@ export default function HomePage() {
               Detailed specifications of the Swell Network protocol and
               architecture.
             </div>
-            <div className="justify-start items-center inline-flex">
+            <div className="home-card-button justify-start items-center inline-flex">
               <Link href="/docs/fundamentals/about-swell-chain">
                 <div className="h-[42px] rounded-[10px] justify-center items-center flex group">
                   <div className="grow shrink basis-0 h-[42px] px-4 py-2 rounded-[10px] border border-border dark:border-white justify-center items-center gap-2 flex hover:bg-accent">
