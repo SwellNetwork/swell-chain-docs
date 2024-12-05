@@ -1,33 +1,29 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Book, Code, Blocks, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import LogoSvg from "@/public/images/logo.svg";
+import Book from "@/public/images/icons/book.svg";
+import BracketsAngle from "@/public/images/icons/bracketsAngle.svg";
+import SquaresFour from "@/public/images/icons/squaresFour.svg";
 
 export default function HomePage() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Hero Section */}
-      <section className="container px-4 py-12 md:py-24 lg:py-32">
+      <section className="container px-4 pt-[120px] md:pt-[268px] pb-12 md:pb-24 lg:pb-32">
         <div className="mx-auto max-w-3xl text-center">
-          <h1 className="mb-6 text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
-            <span className="inline-flex items-center gap-2">
-              <Image
-                src={LogoSvg}
-                alt="Swell Logo"
-                className="h-8 w-8 md:h-10 md:w-10"
-                width={32}
-                height={32}
-              />
-              Swellchain
-            </span>
-            {" - The restaking chain powered by "}
-            <span className="bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
-              Proof of Restake
-            </span>
+          <h1 className="mb-6 flex items-center justify-center gap-2 md:gap-4 text-4xl md:text-[80px] font-semibold tracking-[-1px] md:tracking-[-2.4px] leading-[110%] font-['Inter']">
+            <Image
+              src={LogoSvg}
+              alt="Swell Logo"
+              className="h-[44px] w-[44px] md:h-[88px] md:w-[88px]"
+              width={88}
+              height={88}
+            />
+            <span className="text-foreground">Swellchain Build</span>
           </h1>
-          <p className="mb-8 text-xl text-muted-foreground">
-            Learn how to integrate, build, and scale with Swell Network
+          <p className="mb-8 text-lg md:text-xl text-muted-foreground pt-4 md:pt-[42px]">
+            Learn how to integrate, build, and scale with Swellchain.
           </p>
         </div>
       </section>
@@ -36,51 +32,80 @@ export default function HomePage() {
       <section className="container px-4 pb-16 flex-grow">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {/* Getting Started */}
-          <div className="rounded-lg border bg-card p-6 hover:border-blue-500">
-            <Book className="mb-4 h-8 w-8 text-blue-500" />
-            <h2 className="mb-2 text-xl font-bold">Welcome to Swellchain</h2>
-            <p className="mb-4 text-muted-foreground">
-              New to Swell? Start here for a comprehensive introduction to our
-              platform.
-            </p>
-            <Link href="/docs/">
-              <Button variant="outline" className="group">
-                Learn More
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-            </Link>
+          <div className="h-[251px] p-6 bg-card rounded-xl border border-border flex-col justify-start items-start gap-4 inline-flex hover:border-blue-500">
+            <div className="w-8 h-8 relative">
+              <Image src={Book} alt="Welcome to Swellchain" />
+            </div>
+            <div className="self-stretch text-foreground text-2xl font-semibold font-['Inter'] leading-[28.80px]">
+              Welcome to Swellchain
+            </div>
+            <div className="self-stretch text-muted-foreground text-base font-medium font-['Inter'] leading-relaxed">
+              New to Swell? Start here for a comprehensive introduction.
+            </div>
+            <div className="home-card-button justify-start items-center inline-flex">
+              <Link href="/docs/">
+                <div className="h-[42px] rounded-[10px] justify-center items-center flex group">
+                  <div className="grow shrink basis-0 h-[42px] px-4 py-2 rounded-[10px] border border-border dark:border-white justify-center items-center gap-2 flex hover:bg-accent">
+                    <div className="text-center text-foreground text-base font-medium font-['Inter'] leading-relaxed">
+                      Learn more
+                    </div>
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </div>
+                </div>
+              </Link>
+            </div>
           </div>
 
           {/* Developer Guide */}
-          <div className="rounded-lg border bg-card p-6 hover:border-blue-500">
-            <Code className="mb-4 h-8 w-8 text-blue-500" />
-            <h2 className="mb-2 text-xl font-bold">Developer Guide</h2>
-            <p className="mb-4 text-muted-foreground">
+          <div className="h-[251px] p-6 bg-card rounded-xl border border-border flex-col justify-start items-start gap-4 inline-flex hover:border-blue-500">
+            <div className="w-8 h-8 relative">
+              <Image src={BracketsAngle} alt="Developer Guide" />
+            </div>
+            <div className="self-stretch text-foreground text-2xl font-semibold font-['Inter'] leading-[28.80px]">
+              Developer Guide
+            </div>
+            <div className="self-stretch text-muted-foreground text-base font-medium font-['Inter'] leading-relaxed">
               Technical documentation, APIs, and tools for building on Swell
               Network.
-            </p>
-            <Link href="/docs/guides/getting-started">
-              <Button variant="outline" className="group">
-                View Guide
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-            </Link>
+            </div>
+            <div className="home-card-button justify-start items-center inline-flex">
+              <Link href="/docs/guides/getting-started">
+                <div className="h-[42px] rounded-[10px] justify-center items-center flex group">
+                  <div className="grow shrink basis-0 h-[42px] px-4 py-2 rounded-[10px] border border-border dark:border-white justify-center items-center gap-2 flex hover:bg-accent">
+                    <div className="text-center text-foreground text-base font-medium font-['Inter'] leading-relaxed">
+                      View Guide
+                    </div>
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </div>
+                </div>
+              </Link>
+            </div>
           </div>
 
           {/* Protocol Specs */}
-          <div className="rounded-lg border bg-card p-6 hover:border-blue-500">
-            <Blocks className="mb-4 h-8 w-8 text-blue-500" />
-            <h2 className="mb-2 text-xl font-bold">Protocol Specs</h2>
-            <p className="mb-4 text-muted-foreground">
+          <div className="h-[251px] p-6 bg-card rounded-xl border border-border flex-col justify-start items-start gap-4 inline-flex hover:border-blue-500">
+            <div className="w-8 h-8 relative">
+              <Image src={SquaresFour} alt="Protocol Specs" />
+            </div>
+            <div className="self-stretch text-foreground text-2xl font-semibold font-['Inter'] leading-[28.80px]">
+              Protocol Specs
+            </div>
+            <div className="self-stretch text-muted-foreground text-base font-medium font-['Inter'] leading-relaxed">
               Detailed specifications of the Swell Network protocol and
               architecture.
-            </p>
-            <Link href="/docs/fundamentals/about-swell-chain">
-              <Button variant="outline" className="group">
-                Explore Specs
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-            </Link>
+            </div>
+            <div className="home-card-button justify-start items-center inline-flex">
+              <Link href="/docs/fundamentals/about-swell-chain">
+                <div className="h-[42px] rounded-[10px] justify-center items-center flex group">
+                  <div className="grow shrink basis-0 h-[42px] px-4 py-2 rounded-[10px] border border-border dark:border-white justify-center items-center gap-2 flex hover:bg-accent">
+                    <div className="text-center text-foreground text-base font-medium font-['Inter'] leading-relaxed">
+                      Explore Specs
+                    </div>
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </div>
+                </div>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -92,14 +117,17 @@ export default function HomePage() {
             © 2024 Swell Network. All rights reserved.
           </div>
           <div className="flex gap-4">
-            <Link href="#" className="text-sm text-gray-400 hover:text-white">
+            <Link
+              href="https://www.swellnetwork.io/legal/terms-of-service"
+              className="text-sm text-gray-400 hover:text-white"
+            >
               Terms
             </Link>
-            <Link href="#" className="text-sm text-gray-400 hover:text-white">
+            <Link
+              href="https://www.swellnetwork.io/legal/privacy-policy"
+              className="text-sm text-gray-400 hover:text-white"
+            >
               Privacy
-            </Link>
-            <Link href="#" className="text-sm text-gray-400 hover:text-white">
-              Contact
             </Link>
           </div>
         </div>
