@@ -10,7 +10,10 @@
         "developer-resources/rpc-providers-and-bridges",
         "developer-resources/contract-addresses",
         "guides/block-explorers",
+
+        "---🔄 Node Operation---",
         "node-operation/overview",
+        "node-operation/upgrade",
 
         "---📚 Guides & Tutorials---",
         "[Proof of Restake](https://www.swellnetwork.io/post/restakingyieldlayer)",
