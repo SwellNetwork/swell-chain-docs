@@ -1,0 +1,173 @@
+---
+title: Upgrade Node
+description: Learn how to upgrade your Swellchain node to the latest version
+---
+
+import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
+
+This guide outlines the process for upgrading your Swellchain node to version 1.11.1. The upgrade introduces improvements in node performance and stability. Choose the appropriate upgrade path based on your deployment method.
+
+<Tabs items={['Standard Upgrade', 'AltLayer Upgrade']} groupId="upgrade-path">
+  <Tab value="Standard Upgrade">
+    ## Pre-upgrade Checks
+
+    Before proceeding with the upgrade, verify your current node status:
+
+    ```bash
+    curl localhost:8545 -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":1}'
+    ```
+
+    Ensure your node is fully synced before proceeding with the upgrade.
+
+    ## Backup Process
+
+    Create backups of your critical configuration files:
+
+    ```bash
+    cp .env .env.backup
+    cp jwt.txt jwt.txt.backup
+    ```
+
+    ## Upgrade Steps
+
+    1. Stop your current node:
+
+    ```bash
+    docker compose down
+    ```
+
+    2. Update the repository:
+
+    ```bash
+    git fetch origin
+    git pull
+    ```
+
+    3. Update your `.env` file with the new image versions:
+
+    ```bash
+    # Update these specific lines in your .env file
+    GETH_IMAGE=us-docker.pkg.dev/oplabs-tools-artifacts/images/op-geth:v1.101411.1
+    NODE_IMAGE=us-docker.pkg.dev/oplabs-tools-artifacts/images/op-node:v1.11.1
+    ```
+
+    4. Clean the Docker environment:
+
+    ```bash
+    docker compose down -v
+    docker system prune -f
+    ```
+
+    5. Pull the new images:
+
+    ```bash
+    docker compose pull
+    ```
+
+    6. Start the upgraded node:
+
+    ```bash
+    docker compose up -d
+    ```
+  </Tab>
+
+  <Tab value="AltLayer Upgrade">
+    ## Pre-upgrade Requirements
+
+    The AltLayer upgrade process requires a clean installation in a new directory. This method ensures a fresh start with the latest configurations.
+
+    ## Upgrade Steps
+
+    1. Create a new directory for the upgraded node:
+
+    ```bash
+    mkdir swell-node-v1.11.1
+    cd swell-node-v1.11.1
+    ```
+
+    2. Clone the AltLayer repository:
+
+    ```bash
+    git clone https://github.com/alt-research/opstack-node-v1.11.1.git .
+    ```
+
+    3. Copy your existing configuration:
+
+    ```bash
+    cp ../your-old-node-directory/.env .
+    cp ../your-old-node-directory/jwt.txt .
+    ```
+
+    4. Update the environment variables:
+
+    ```bash
+    # Update or verify these values in your .env file
+    GETH_IMAGE=us-docker.pkg.dev/oplabs-tools-artifacts/images/op-geth:v1.101411.1
+    NODE_IMAGE=us-docker.pkg.dev/oplabs-tools-artifacts/images/op-node:v1.11.1
+    L2_RPC=http://localhost:8545
+    P2P_LISTEN_IP=0.0.0.0
+    ```
+
+    5. Stop the old node:
+
+    ```bash
+    cd ../your-old-node-directory
+    docker compose down
+    ```
+
+    6. Start the new node:
+
+    ```bash
+    cd ../swell-node-v1.11.1
+    docker compose up -d
+    ```
+  </Tab>
+</Tabs>
+
+## Post-upgrade Verification
+
+After the upgrade, verify your node is operating correctly:
+
+1. Check the node sync status:
+
+```bash
+curl localhost:8545 -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":1}'
+```
+
+2. Monitor the logs for any errors:
+
+```bash
+docker compose logs -f node
+docker compose logs -f geth
+```
+
+3. Verify the current block height:
+
+```bash
+curl localhost:8545 -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}'
+```
+
+## Troubleshooting
+
+If you encounter issues during the upgrade:
+
+1. Check the node logs for specific error messages
+2. Verify all environment variables are correctly set in your `.env` file
+3. Ensure sufficient disk space is available
+4. Confirm network connectivity to L1 endpoints
+
+If problems persist, revert to the backup configuration:
+
+```bash
+# For Standard Upgrade
+cp .env.backup .env
+cp jwt.txt.backup jwt.txt
+docker compose down
+docker compose up -d
+
+# For AltLayer Upgrade
+cd ../your-old-node-directory
+docker compose up -d
+```
+
+The node upgrade process typically takes 10-15 minutes to complete. Monitor the logs to ensure proper synchronization after the upgrade.
