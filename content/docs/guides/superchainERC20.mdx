@@ -1,0 +1,227 @@
+---
+title: SuperchainERC20
+description: Deploy and integrate SuperchainERC20 tokens on Swellchain
+---
+
+import { TypeTable } from "@/components/type-table";
+import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
+import { Card, Cards } from "@/components/card";
+
+# Deploying and Using SuperchainERC20 on Swellchain
+
+SuperchainERC20 provides a standardized token implementation enabling seamless asset movement across the Optimism Superchain ecosystem. This guide explains the standard's architecture, deployment process, and integration patterns for Swellchain developers.
+
+## What is SuperchainERC20?
+
+SuperchainERC20 extends the standard ERC20 token with cross-chain mint and burn capabilities, enabling seamless interoperability across the Superchain ecosystem. This token standard implements the ERC-7802 interface, providing deterministic cross-chain functionality with minimal latency between transfers.
+
+The standard leverages a burn-and-mint mechanism that maintains a consistent token supply across all chains in the Superchain network:
+
+- When tokens move between chains, they're burned on the source chain
+- An equivalent amount is minted on the destination chain
+- This process eliminates the need for liquidity pools or wrapped tokens
+
+## Why SuperchainERC20 Matters for Swellchain
+
+Integrating SuperchainERC20 provides Swellchain with essential cross-chain capabilities that enhance the network's interoperability within the broader Superchain ecosystem. The implementation enables you to deploy tokens that function seamlessly across multiple L2 networks with one-block latency for cross-chain transfers.
+
+SuperchainERC20 integration creates opportunities for:
+
+- **Enhanced Liquidity**: Unified token representation across chains improves capital efficiency
+- **Simplified Developer Experience**: Consistent API for projects building on Swellchain
+- **Reduced Fragmentation**: Improved capital efficiency for DeFi applications across the Superchain ecosystem - one chain to rule them all
+
+## Deploying SuperchainERC20 - Quick Start
+
+This guide provides a streamlined approach to deploying SuperchainERC20 tokens on Swellchain
+
+### Prerequisites
+
+- Foundry toolchain
+- Node.js and pnpm
+- Wallet with funds on Swellchain
+
+Install Foundry toolchain:
+
+```bash
+curl -L https://foundry.paradigm.xyz | bash
+foundryup
+```
+
+### Setup and Deployment
+
+1. Clone the starter kit repository:
+
+```bash
+git clone https://github.com/ethereum-optimism/superchainerc20-starter.git
+cd superchainerc20-starter
+```
+
+2. Install dependencies:
+
+```bash
+pnpm i
+```
+
+3. Initialize environment files:
+
+```bash
+pnpm init:env
+```
+
+4. Configure deployment parameters in `deploy-config.toml`:
+
+<Callout type="info">
+The `chains` field accepts a list of chain identifiers.
+You can find more here in the [Superchain Registry](https://github.com/ethereum-optimism/superchain-registry/blob/main/chainList.json).
+</Callout>
+
+```toml
+[deploy-config]
+salt = "your-unique-salt"  # Used for deterministic deployment
+chains = ["mainnet/swell", "mainnet/op"]  # List of target chains
+
+[token]
+owner_address = "0xYourWalletAddress"  # Token owner address
+name = "YourTokenName"  # Token name
+symbol = "YTK"  # Token symbol
+decimals = 18  # Token decimals
+```
+
+5. Update RPC endpoints:
+
+```bash
+pnpm contracts:update:rpcs
+```
+
+6. Deploy your token:
+
+```bash
+pnpm contracts:deploy:token
+```
+
+This deployment process uses `Create2` to ensure your token deploys to the same address across all specified chains, a critical requirement for cross-chain functionality.
+
+<Callout type="info">
+Verify that your token is deployed at the same address on all target chains by checking each chain's block explorer with the contract address.
+</Callout>
+
+## Technical Architecture
+
+### Cross-chain Message Flow
+
+SuperchainERC20 transfers operate through a two-transaction message flow:
+
+1. **Initiate Transaction**: On the source chain, tokens are burned and a cross-chain message is emitted
+2. **Execute Transaction**: The message is relayed to the destination chain, triggering token minting
+
+This flow ensures tokens maintain consistent total supply across the entire Superchain ecosystem.
+
+### Interoperability Components
+
+The Superchain interoperability system consists of three key components:
+
+- **Message Passing Protocol**: Handles cross-chain inbox/outbox communication
+- **OP Supervisor**: Provides visibility into cross-chain messages and monitors block status
+- **Fault Proof System**: Shared across the interop cluster to ensure security
+
+The system operates as a mesh network where each chain maintains connections with all other chains in the dependency set.
+
+<TypeTable
+  type={{
+    crosschainMint: {
+      description: 'Mints tokens from a source chain to the recipient',
+      type: 'function',
+      default: '-'
+    },
+    crosschainBurn: {
+      description: 'Burns tokens when moving to a destination chain',
+      type: 'function',
+      default: '-'
+    },
+    SuperchainBridge: {
+      description: 'Contract that orchestrates cross-chain transfers',
+      type: 'address',
+      default: '-'
+    }
+  }}
+/>
+
+### Auto-relaying and Finality
+
+The OP Supervisor service monitors block status and automatically relays cross-chain messages, enabling:
+
+- One-block latency for cross-chain transfers
+- Reorg awareness to prevent double-spend attacks
+- Automatic reversion of transactions if source chain reorganizes
+
+These capabilities allow for high-speed cross-chain composition while maintaining security guarantees.
+
+## Security Considerations
+
+For production deployments, ensure that:
+
+1. Only the SuperchainERC20Bridge contract has permission to call `crosschainMint` and `crosschainBurn` functions
+2. The same salt value is used across all deployments to maintain address consistency
+3. Token supply is properly managed across chains to prevent inflation
+
+<Tabs items={['Correct Implementation', 'Vulnerable Implementation']}>
+<Tab value="Correct Implementation">
+```solidity
+// Only the bridge can call crosschainMint and crosschainBurn
+function crosschainMint(address to, uint256 amount) external {
+    require(msg.sender == address(superchainBridge), "Not bridge");
+    _mint(to, amount);
+}
+```
+</Tab>
+<Tab value="Vulnerable Implementation">
+```solidity
+// VULNERABLE: Anyone can mint tokens
+function crosschainMint(address to, uint256 amount) external {
+    _mint(to, amount);
+}
+```
+</Tab>
+</Tabs>
+
+## Testing Your Deployment
+
+After deployment, verify your token functions correctly:
+
+1. Start the local development environment:
+
+```bash
+pnpm dev
+```
+
+2. Use the Superchain Dev Console to mint tokens and test transfers between chains.
+
+Verify that tokens are correctly burned on the source chain and minted on the destination chain with consistent total supply.
+
+## Advanced Integration
+
+For projects requiring custom token behavior while maintaining cross-chain compatibility, consider:
+
+- Extending the base SuperchainERC20 contract with additional functionality
+- Implementing specific business logic through the owner interface
+- Adding governance controls for managing permissions and parameters
+
+### Converting Existing ERC20 Tokens
+
+For projects with existing ERC20 tokens, migration to SuperchainERC20 requires:
+
+1. Creating a new SuperchainERC20 implementation
+2. Deploying it deterministically across all target chains
+3. Setting up a migration mechanism for existing token holders
+4. Configuring cross-chain permissions correctly
+
+This process preserves token economics while enabling cross-chain functionality.
+
+## Resources and Documentation
+
+SuperchainERC20 provides the foundation for building truly interoperable applications across the Superchain ecosystem, enabling developers to focus on building features rather than solving complex cross-chain challenges.
+
+- [Optimism SuperchainERC20 Starter Kit](https://github.com/ethereum-optimism/superchainerc20-starter)
+- [ERC-7802: Crosschain Token Interface](https://eips.ethereum.org/EIPS/eip-7802)
+- [Optimism Developer Documentation](https://docs.optimism.io/app-developers/starter-kit)
