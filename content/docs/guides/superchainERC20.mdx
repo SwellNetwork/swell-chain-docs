@@ -71,6 +71,11 @@ pnpm init:env
 
 4. Configure deployment parameters in `deploy-config.toml`:
 
+<Callout type="info">
+The `chains` field accepts a list of chain identifiers.
+You can find more here in the [Superchain Registry](https://github.com/ethereum-optimism/superchain-registry/blob/main/chainList.json).
+</Callout>
+
 ```toml
 [deploy-config]
 salt = "your-unique-salt"  # Used for deterministic deployment
