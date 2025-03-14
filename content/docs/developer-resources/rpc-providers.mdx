@@ -1,0 +1,407 @@
+---
+title: RPC Providers
+description: Available RPC endpoints for Swellchain
+---
+
+import { Card, Cards } from "@/components/card";
+import { Waypoints } from "lucide-react";
+import { TypeTable } from "@/components/type-table";
+import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
+
+## RPC Provider
+
+To connect to Swellchain, you can use the following RPC providers. Please note that some of these providers require an API key, and differ in their usage of HTTPS and WSS endpoints.
+
+1. [Infura RPC](#infura-rpc)
+2. [dRPC](#drpc)
+3. [AltLayer RPC](#altlayer-rpc)
+4. [Ankr RPC](#ankr-rpc)
+
+---
+
+### Infura RPC
+
+Infura provides access to Swellchain through its Decentralized Infrastructure Network (DIN) service, which routes calls to partner infrastructure providers rather than hosting the nodes directly. This helps maintain network decentralization while providing reliable access.
+
+| Network | HTTPS Endpoint |
+| --- | --- |
+| Mainnet | https://swellchain-mainnet.infura.io/v3/YOUR_API_KEY |
+
+To use Infura with Swellchain:
+
+1. Create an Infura account at [infura.io](https://infura.io)
+2. Create a new API key and ensure Swellchain network is enabled for your project
+3. Replace `YOUR_API_KEY` in the endpoint URL with your actual Infura API key
+4. Use this endpoint in your development environment, wallet, or dApp configuration
+
+Examples of making requests to Swellchain via Infura:
+
+<Tabs items={['curl', 'Node Fetch', 'Axios', 'Ethers.js', 'Python']}>
+  <Tab value="curl">
+```bash
+curl https://swellchain-mainnet.infura.io/v3/YOUR_API_KEY \
+  -X POST \
+  -H "Content-Type: application/json" \
+  -d '{"jsonrpc": "2.0", "method": "eth_blockNumber", "params": [], "id": 1}'
+```
+  </Tab>
+  <Tab value="Node Fetch">
+```javascript
+import fetch from "node-fetch"
+
+fetch("https://swellchain-mainnet.infura.io/v3/YOUR_API_KEY", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    jsonrpc: "2.0",
+    method: "eth_blockNumber",
+    params: [],
+    id: 1,
+  }),
+})
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data)
+  })
+  .catch((error) => {
+    console.error(error)
+  })
+```
+  </Tab>
+  <Tab value="Axios">
+```javascript
+const axios = require("axios")
+
+axios
+  .post("https://swellchain-mainnet.infura.io/v3/YOUR_API_KEY", {
+    jsonrpc: "2.0",
+    method: "eth_blockNumber",
+    params: [],
+    id: 1,
+  })
+  .then((response) => {
+    console.log(response.data)
+  })
+  .catch((error) => {
+    console.error(error)
+  })
+```
+  </Tab>
+  <Tab value="Ethers.js">
+```javascript
+const ethers = require("ethers")
+
+const provider = new ethers.providers.JsonRpcProvider(
+  "https://swellchain-mainnet.infura.io/v3/YOUR_API_KEY"
+)
+
+provider
+  .getBlockNumber()
+  .then((blockNumber) => {
+    console.log(blockNumber)
+  })
+  .catch((error) => {
+    console.error(error)
+  })
+```
+  </Tab>
+  <Tab value="Python">
+```python
+import requests
+import json
+
+url = "https://swellchain-mainnet.infura.io/v3/YOUR_API_KEY"
+payload = {
+  "jsonrpc": "2.0",
+  "method": "eth_blockNumber",
+  "params": [],
+  "id": 1
+}
+headers = {"content-type": "application/json"}
+
+response = requests.post(url, data=json.dumps(payload), headers=headers).json()
+print(response)
+```
+  </Tab>
+</Tabs>
+
+More information: [Infura Swellchain Documentation](https://docs.metamask.io/services/reference/swellchain/)
+
+---
+
+### dRPC
+
+dRPC is a decentralized RPC provider that aggregates multiple backend providers into a single endpoint, offering enhanced reliability through distributed infrastructure. It features an AI-driven load balancer that routes requests to the most optimal nodes based on performance, latency, and availability.
+
+| Network | HTTPS Endpoint | WSS Endpoint |
+| --- | --- | --- |
+| Mainnet | https://swell.drpc.org | wss://swell.drpc.org |
+
+To use dRPC with Swellchain:
+
+1. Visit [dRPC website](https://drpc.org) to create an account and obtain an API key
+2. For production use, append your API key to the endpoint URL: `https://swell.drpc.org/YOUR_API_KEY` or `wss://swell.drpc.org/YOUR_API_KEY`
+3. Use this endpoint in your development environment, wallet, or dApp configuration
+
+Examples of making requests to Swellchain via dRPC:
+
+<Tabs items={['curl', 'Node Fetch', 'Web3.js', 'Ethers.js', 'Go', 'Python']}>
+  <Tab value="curl">
+```bash
+curl https://swell.drpc.org \
+  -X POST \
+  -H "Content-Type: application/json" \
+  --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}'
+```
+  </Tab>
+  <Tab value="Node Fetch">
+```javascript
+import fetch from 'node-fetch';
+
+// Request headers
+const headers = {
+  'Content-Type': 'application/json',
+};
+
+// Request body
+const body = JSON.stringify({
+  jsonrpc: '2.0',
+  method: 'eth_blockNumber',
+  params: [],
+  id: 1,
+});
+
+fetch('https://swell.drpc.org', {
+  method: 'POST',
+  headers: headers,
+  body: body,
+})
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));
+```
+  </Tab>
+  <Tab value="Web3.js">
+```javascript
+const Web3 = require('web3');
+
+const url = "https://swell.drpc.org" // url string
+
+const web3 = new Web3(new Web3.providers.HttpProvider(url));
+
+web3.eth.getBlockNumber((error, blockNumber) => {
+    if(!error) {
+        console.log(blockNumber);
+    } else {
+        console.log(error);
+    }
+});
+```
+  </Tab>
+  <Tab value="Ethers.js">
+```javascript
+const ethers = require("ethers")
+
+// HTTPS endpoint
+const provider = new ethers.providers.JsonRpcProvider(
+  "https://swell.drpc.org"
+)
+
+// Or use WebSocket endpoint
+// const provider = new ethers.providers.WebSocketProvider(
+//   "wss://swell.drpc.org"
+// )
+
+provider
+  .getBlockNumber()
+  .then((blockNumber) => {
+    console.log(blockNumber)
+  })
+  .catch((error) => {
+    console.error(error)
+  })
+```
+  </Tab>
+  <Tab value="Go">
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "github.com/ethereum/go-ethereum/ethclient"
+)
+
+func main() {
+    const url = "https://swell.drpc.org"  // url string
+    
+    rpcClient, err := ethclient.Dial(url)
+    
+    if err != nil {
+        panic(err)
+    }
+    
+    blockNumber, err := rpcClient.BlockNumber(context.Background())
+    
+    if err != nil {
+        panic(err)
+    }
+    
+    fmt.Println(blockNumber)
+}
+```
+  </Tab>
+  <Tab value="Python">
+```python
+from web3 import Web3
+from web3.providers.http import HTTPProvider
+          
+url = "https://swell.drpc.org"  # url string
+    
+web3 = Web3(HTTPProvider(url))
+print(web3.eth.block_number)
+```
+  </Tab>
+</Tabs>
+
+<Callout type="info">
+For production environments, append your API key to the endpoint URL (e.g., `https://swell.drpc.org/YOUR_API_KEY`). The examples above use the public endpoint for simplicity.
+</Callout>
+
+More information: [dRPC Docs](https://drpc.org/docs)
+
+---
+
+### AltLayer RPC
+
+AltLayer provides RPC endpoints for Swellchain as part of their rollup infrastructure services.
+
+| Network | HTTPS Endpoint | WSS Endpoint |
+| --- | --- | --- |
+| Mainnet | https://swell-mainnet.alt.technology | wss://swell-mainnet.alt.technology/ws |
+| Testnet | https://swell-testnet.alt.technology | wss://swell-testnet.alt.technology/ws |
+
+<Tabs items={['curl', 'Ethers.js']}>
+  <Tab value="curl">
+```bash
+curl https://swell-mainnet.alt.technology \
+  -X POST \
+  -H "Content-Type: application/json" \
+  --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}'
+```
+  </Tab>
+  <Tab value="Ethers.js">
+```javascript
+const ethers = require("ethers")
+
+// HTTPS endpoint
+const provider = new ethers.providers.JsonRpcProvider(
+  "https://swell-mainnet.alt.technology"
+)
+
+// Or use WebSocket endpoint
+// const provider = new ethers.providers.WebSocketProvider(
+//   "wss://swell-mainnet.alt.technology/ws"
+// )
+
+provider
+  .getBlockNumber()
+  .then((blockNumber) => {
+    console.log(blockNumber)
+  })
+  .catch((error) => {
+    console.error(error)
+  })
+```
+  </Tab>
+</Tabs>
+
+More information: [AltLayer Docs](https://docs.altlayer.io/altlayer-documentation) | [Swellchain on AltLayer](https://rollup-info.altlayer.io/news-school-enough/swell_mainnet)
+
+---
+
+### Ankr RPC
+
+Ankr offers multiple service tiers:
+- **Free Plan**: 30 requests/second, HTTPS connections, community support
+- **Premium Plans**: Higher rate limits, HTTPS/WSS connections, priority support
+
+| Network | HTTPS Endpoint | WSS Endpoint |
+| --- | --- | --- |
+| Mainnet | https://rpc.ankr.com/swell | wss://rpc.ankr.com/swell/ws |
+| Testnet | https://rpc.ankr.com/swell-testnet | wss://rpc.ankr.com/swell-testnet/ws |
+
+
+
+Examples of making requests to Swellchain via Ankr:
+
+<Tabs items={['curl', 'Web3.js', 'Ethers.js', 'Python']}>
+  <Tab value="curl">
+```bash
+curl https://rpc.ankr.com/swell \
+  -X POST \
+  -H "Content-Type: application/json" \
+  --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}'
+```
+  </Tab>
+  <Tab value="Web3.js">
+```javascript
+const Web3 = require('web3');
+
+const url = "https://rpc.ankr.com/swell" // url string
+
+const web3 = new Web3(new Web3.providers.HttpProvider(url));
+
+web3.eth.getBlockNumber((error, blockNumber) => {
+    if(!error) {
+        console.log(blockNumber);
+    } else {
+        console.log(error);
+    }
+});
+```
+  </Tab>
+  <Tab value="Ethers.js">
+```javascript
+const ethers = require("ethers")
+
+// HTTPS endpoint
+const provider = new ethers.providers.JsonRpcProvider(
+  "https://rpc.ankr.com/swell"
+)
+
+// Or use WebSocket endpoint
+// const provider = new ethers.providers.WebSocketProvider(
+//   "wss://rpc.ankr.com/swell/ws"
+// )
+
+provider
+  .getBlockNumber()
+  .then((blockNumber) => {
+    console.log(blockNumber)
+  })
+  .catch((error) => {
+    console.error(error)
+  })
+```
+  </Tab>
+  <Tab value="Python">
+```python
+from web3 import Web3
+from web3.providers.http import HTTPProvider
+          
+url = "https://rpc.ankr.com/swell"  # url string
+    
+web3 = Web3(HTTPProvider(url))
+print(web3.eth.block_number)
+```
+  </Tab>
+</Tabs>
+
+More information: [Ankr Docs](https://www.ankr.com/docs/) and [Ankr Swellchain Documentation](https://www.ankr.com/docs/rpc-service/chains/chains-list/#swell)
+
+<Callout type="info">
+You can add the network to your wallet and see additional RPC endpoints on [ChainList](https://chainlist.org/?search=swell&testnets=true).
+</Callout>
