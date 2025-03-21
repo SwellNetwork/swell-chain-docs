@@ -1,37 +1,48 @@
 ---
-title: SuperchainERC20
-description: Deploy and integrate SuperchainERC20 tokens on Swellchain
+title: SuperchainERC20 Quickstart
+description: Learn how to deploy a SuperchainERC20 on Swellchain
 ---
 
 import { TypeTable } from "@/components/type-table";
 import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 import { Card, Cards } from "@/components/card";
 
-# Deploying and Using SuperchainERC20 on Swellchain
+<Callout type="info">
+The SuperchainERC20 standard is ready for production deployments. Please note that the OP Stack interoperability upgrade, required for crosschain messaging, is currently in active development.
+</Callout>
 
-SuperchainERC20 provides a standardized token implementation enabling seamless asset movement across the Optimism Superchain ecosystem. This guide explains the standard's architecture, deployment process, and integration patterns for Swellchain developers.
+
+Welcome to the SuperchainERC20 quickstart guide! In this guide, we'll cover how the token works and deployment process. Whether you're a seasoned developer or just starting out, this guide has got you covered.
+
 
 ## What is SuperchainERC20?
 
-SuperchainERC20 extends the standard ERC20 token with cross-chain mint and burn capabilities, enabling seamless interoperability across the Superchain ecosystem. This token standard implements the ERC-7802 interface, providing deterministic cross-chain functionality with minimal latency between transfers.
+SuperchainERC20 provides a standardized token implementation enabling seamless token transfers across the Superchain. 
 
-The standard leverages a burn-and-mint mechanism that maintains a consistent token supply across all chains in the Superchain network:
+SuperchainERC20 extends the standard ERC-20 token with cross-chain mint and burn capabilities, enabling seamless interoperability across the [Superchain interop cluster](https://docs.optimism.io/stack/interop/explainer#superchain-interop-cluster). This token standard implements the [ERC-7802](https://eips.ethereum.org/EIPS/eip-7802) interface to enable 1-block latency cross-chain mint/burn functionality.
 
-- When tokens move between chains, they're burned on the source chain
-- An equivalent amount is minted on the destination chain
-- This process eliminates the need for liquidity pools or wrapped tokens
+## How does SuperchainERC20 work?
 
-## Why SuperchainERC20 Matters for Swellchain
+[SuperchainERC20](https://github.com/ethereum-optimism/optimism/blob/develop/packages/contracts-bedrock/src/L2/SuperchainERC20.sol) and [SuperchainTokenBridge](https://github.com/ethereum-optimism/optimism/blob/develop/packages/contracts-bedrock/src/L2/SuperchainTokenBridge.sol) work together to allow ERC-20 tokens to be transferred from one chain to the other.
 
-Integrating SuperchainERC20 provides Swellchain with essential cross-chain capabilities that enhance the network's interoperability within the broader Superchain ecosystem. The implementation enables you to deploy tokens that function seamlessly across multiple L2 networks with one-block latency for cross-chain transfers.
+SuperchainERC20 cross-chain transfers require two transactions:
 
-SuperchainERC20 integration creates opportunities for:
+1. **Initiate Transaction**: On the source chain, tokens are burned and a cross-chain message is emitted
+2. **Execute Transaction**: The message is relayed to the destination chain, triggering token minting
+
+This flow ensures tokens maintain consistent total supply across the entire Superchain ecosystem and eliminates the need for liquidity pools or wrapped tokens. 
+
+## Why SuperchainERC20 matters for users, token issuers, and apps on Swellchain
+
+Superchain interop provides Swellchain with essential cross-chain capabilities that enhance the network's interoperability. When token issuers use SuperchainERC20 over a typical ER-C20 deployment it gives token issuers access to the broader Superchain network effects, ensuring your tokens can seamlessly be used by apps and users across the Superchain. 
+
+SuperchainERC20 deployment creates opportunities for:
 
 - **Enhanced Liquidity**: Unified token representation across chains improves capital efficiency
 - **Simplified Developer Experience**: Consistent API for projects building on Swellchain
 - **Reduced Fragmentation**: Improved capital efficiency for DeFi applications across the Superchain ecosystem - one chain to rule them all
 
-## Deploying SuperchainERC20 - Quick Start
+## Deploying SuperchainERC20 - Quickstart
 
 This guide provides a streamlined approach to deploying SuperchainERC20 tokens on Swellchain
 
@@ -106,63 +117,19 @@ This deployment process uses `Create2` to ensure your token deploys to the same 
 Verify that your token is deployed at the same address on all target chains by checking each chain's block explorer with the contract address.
 </Callout>
 
-## Technical Architecture
-
-### Cross-chain Message Flow
-
-SuperchainERC20 transfers operate through a two-transaction message flow:
-
-1. **Initiate Transaction**: On the source chain, tokens are burned and a cross-chain message is emitted
-2. **Execute Transaction**: The message is relayed to the destination chain, triggering token minting
-
-This flow ensures tokens maintain consistent total supply across the entire Superchain ecosystem.
-
-### Interoperability Components
-
-The Superchain interoperability system consists of three key components:
-
-- **Message Passing Protocol**: Handles cross-chain inbox/outbox communication
-- **OP Supervisor**: Provides visibility into cross-chain messages and monitors block status
-- **Fault Proof System**: Shared across the interop cluster to ensure security
-
-The system operates as a mesh network where each chain maintains connections with all other chains in the dependency set.
-
-<TypeTable
-  type={{
-    crosschainMint: {
-      description: 'Mints tokens from a source chain to the recipient',
-      type: 'function',
-      default: '-'
-    },
-    crosschainBurn: {
-      description: 'Burns tokens when moving to a destination chain',
-      type: 'function',
-      default: '-'
-    },
-    SuperchainBridge: {
-      description: 'Contract that orchestrates cross-chain transfers',
-      type: 'address',
-      default: '-'
-    }
-  }}
-/>
-
-### Auto-relaying and Finality
-
-The OP Supervisor service monitors block status and automatically relays cross-chain messages, enabling:
-
-- One-block latency for cross-chain transfers
-- Reorg awareness to prevent double-spend attacks
-- Automatic reversion of transactions if source chain reorganizes
-
-These capabilities allow for high-speed cross-chain composition while maintaining security guarantees.
 
 ## Security Considerations
 
+<Callout type="info">
+To ensure security, you must either design the deployer to allow only a specific trusted ERC-20 contract, such as SuperchainERC20, to be deployed through it, or call CREATE2 to deploy the contract directly from an EOA you control.
+
+This precaution is critical because if an unauthorized ERC-20 contract is deployed at the same address on any Superchain network, it could allow malicious actors to mint unlimited tokens and bridge them to the network where the original ERC-20 contract resides.
+</Callout>
+
 For production deployments, ensure that:
 
-1. Only the SuperchainERC20Bridge contract has permission to call `crosschainMint` and `crosschainBurn` functions
-2. The same salt value is used across all deployments to maintain address consistency
+1. Grant permissions to the `SuperchainTokenBridge`(address `0x4200000000000000000000000000000000000028`) to call `crosschainMint` and `crosschainBurn`.
+2. The same salt value is used across all deployments to maintain address consistency. If you do not deploy the contract to a specific destination chain, users will be unable to successfully move their tokens to that chain.
 3. Token supply is properly managed across chains to prevent inflation
 
 <Tabs items={['Correct Implementation', 'Vulnerable Implementation']}>
@@ -170,7 +137,7 @@ For production deployments, ensure that:
 ```solidity
 // Only the bridge can call crosschainMint and crosschainBurn
 function crosschainMint(address to, uint256 amount) external {
-    require(msg.sender == address(superchainBridge), "Not bridge");
+    require(msg.sender == address(Predeploys.SUPERCHAIN_TOKEN_BRIDGE), "Not bridge");
     _mint(to, amount);
 }
 ```
@@ -220,8 +187,8 @@ This process preserves token economics while enabling cross-chain functionality.
 
 ## Resources and Documentation
 
-SuperchainERC20 provides the foundation for building truly interoperable applications across the Superchain ecosystem, enabling developers to focus on building features rather than solving complex cross-chain challenges.
+SuperchainERC20 enables token issuers to seamlessly access Superchain network effects. By leveraging SuperchainERC20 and Superchain interop, developers can focus on building features rather than solving complex cross-chain challenges.
 
-- [Optimism SuperchainERC20 Starter Kit](https://github.com/ethereum-optimism/superchainerc20-starter)
-- [ERC-7802: Crosschain Token Interface](https://eips.ethereum.org/EIPS/eip-7802)
-- [Optimism Developer Documentation](https://docs.optimism.io/app-developers/starter-kit)
+- Use Supersim, a local development tool, to [deploy a SuperchainERC20 or build an interop-enabled app](https://docs.optimism.io/app-developers/get-started)
+- Learn more about the [technical architecture of Superchain interop](https://docs.optimism.io/stack/interop/explainer)
+- Learn about how [other token standards can benefit from Superchain interop](https://docs.optimism.io/stack/interop/compatible-tokens)
