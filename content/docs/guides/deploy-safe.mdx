@@ -1,0 +1,111 @@
+---
+title: Deploy Safe Multisig
+description: Learn how to deploy and use a Safe multisig wallet on Swellchain
+---
+
+import { Card, Cards } from "@/components/card";
+import { Callout } from "fumadocs-ui/components/callout";
+
+export function ArcadeEmbed() {
+  return (
+    <div style={{ position: 'relative', paddingBottom: 'calc(60.27334851936219% + 41px)', height: 0, width: '100%' }}>
+      <iframe
+        src="https://demo.arcade.software/JvhryD7m7z1ZgRKMxDhD?embed&embed_mobile=tab&embed_desktop=inline&show_copy_link=true"
+        title="Superchain Safe – Welcome"
+        frameBorder="0"
+        loading="lazy"
+        allowFullScreen
+        allow="clipboard-write"
+        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', colorScheme: 'light' }}
+      />
+    </div>
+  )
+}
+
+## Safe Multisig Wallet
+
+Safe (formerly Gnosis Safe) provides a secure way to manage digital assets with multiple signers. This guide walks through deploying a Safe multisig wallet on Swellchain and performing basic operations.
+
+<ArcadeEmbed />
+
+---
+
+## Deploying a Safe Multisig
+
+### Prerequisites
+- A wallet with a small amount of ETH on Swellchain for transaction fees
+- The wallet addresses of all intended signers
+
+### Deployment Steps
+
+1. Navigate to [https://safe.optimism.io/](https://safe.optimism.io/) and connect your wallet.
+
+2. Select the Swellchain network from the network dropdown. If Swellchain isn't listed, you can add it manually with the following parameters:
+
+   | Parameter | Value |
+   | --- | --- |
+   | Chain Name | Swellchain |
+   | Chain ID | 1923 |
+   | RPC URL | https://swell-mainnet.alt.technology |
+   | Block Explorer | https://swellchainscan.io |
+
+3. Click "Create new Safe" to begin the deployment process.
+
+4. Select the network where you want to deploy your Safe. You can deploy to multiple networks if needed.
+
+5. Configure your Safe by adding signers:
+   - Add the wallet addresses of all intended signers
+   - Set the threshold (minimum number of signatures required to approve transactions)
+   - The threshold should be between 1 and the total number of signers
+
+6. Review your configuration and confirm the deployment.
+
+   <Callout type="info">
+   The deployment requires a small amount of ETH for transaction fees. This amount is typically minimal (approximately 0.000001 ETH).
+   </Callout>
+
+7. After deployment, you'll need to activate your Safe by funding it and signing an initial transaction.
+
+---
+
+## Using Your Safe Multisig
+
+### Managing Funds
+
+To send funds from your Safe:
+
+1. Select "New Transaction" from the Safe interface.
+2. Choose "Send tokens" as the transaction type.
+3. Enter the recipient address and the amount to send.
+4. Submit the transaction for approval.
+5. Once the required number of signers (meeting your threshold) have approved, execute the transaction.
+
+### Interacting with Smart Contracts
+
+Your Safe can interact with any smart contract on Swellchain:
+
+1. Select "New Transaction" from the Safe interface.
+2. Choose "Contract interaction" as the transaction type.
+3. Enter the contract address and ABI, or use the interface to select the function and parameters.
+4. Submit the transaction for approval by the required signers.
+5. Execute the approved transaction.
+
+### Managing Signers
+
+You can modify your Safe configuration after deployment:
+
+1. Navigate to the "Settings" tab in your Safe interface.
+2. Select "Owners" to add or remove signers.
+3. Select "Policies" to modify the approval threshold.
+4. Any changes to the configuration require approval from the current signers based on the existing threshold.
+
+---
+
+## Security Considerations
+
+- The security of your Safe multisig depends on how you manage the signer keys. Each signer should follow best practices for key management.
+- Consider using hardware wallets for signer accounts to maximize security.
+- Test transactions with small amounts before moving significant assets.
+- Regularly review your Safe's transaction history and settings to ensure they remain secure.
+
+For more information about Safe, visit the [official Safe documentation](https://docs.safe.global/home/what-is-safe).
