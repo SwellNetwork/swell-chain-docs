@@ -5,6 +5,9 @@
 .contentlayer
 .content-collections
 .source
+/public/llms.txt
+/public/llms-full.txt
+/public/docs
 
 # test & build
 /coverage

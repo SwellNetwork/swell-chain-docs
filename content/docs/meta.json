@@ -3,7 +3,7 @@
         "index",
 
         "---📖 Fundamentals---",
-        "fundamentals/about-swell-chain",
+        "fundamentals/about-swellchain",
         
         "---🛠️ Build on Swell---",
         "guides/getting-started",
@@ -20,6 +20,8 @@
         "[Proof of Restake](https://www.swellnetwork.io/post/restakingyieldlayer)",
         "[Blog](https://www.swellnetwork.io/blog)",
         "guides/superchainERC20",
+        "guides/deploy-safe",
+        "fundamentals/faq",
 
         "---💬 Community---",
         "[Discord](https://discord.gg/swellnetworkdao)",
@@ -27,8 +29,10 @@
         "[X](https://x.com/swellnetworkio)",
 
         "--- Quick Links---",
-        "[Explorer](https://explorer.swellnetwork.io)",
+        "[Explorer](https://swellchainscan.io)",
         "[Bridge](https://superbridge.swellnetwork.io)",
-        "[Network Status](https://swell-mainnet-status.alt.technology)"
+        "[Network Status](https://swell-mainnet-status.alt.technology)",
+        "[Direct Support via TG](https://t.me/fabianhug)",
+        "[LLM / AI Context](/llms-full.txt)"
     ]
 }
