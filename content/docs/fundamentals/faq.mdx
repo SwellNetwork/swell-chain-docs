@@ -1,0 +1,138 @@
+---
+title: FAQs
+description: Common questions about Swellchain, its architecture, and operation
+---
+
+import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
+
+## Basics
+
+<Accordions type="single">
+  <Accordion title="What is Swellchain?">
+    Swellchain is a restaking-powered Layer 2 network built on the OP Stack. It extends Ethereum's security through EigenLayer's restaking mechanism while leveraging Optimism's proven infrastructure for transaction processing and scalability.
+  </Accordion>
+
+  <Accordion title="Is Swellchain's source code publicly accessible?">
+    Yes, Swellchain is built on the Optimism OP-Stack which is open source. The code is available at [https://github.com/ethereum-optimism/optimism](https://github.com/ethereum-optimism/optimism). Swellchain operates as an OP-Stack L2 similar to Optimism, Base, Ink, and Unichain.
+  </Accordion>  
+
+  <Accordion title="What is the consensus mechanism of Swellchain?">
+    Swellchain inherits the consensus mechanism of the OP Stack, which uses a sequencer to order transactions that are then submitted to Ethereum.
+  </Accordion>
+</Accordions>
+
+## Tokenomics and Economics
+
+<Accordions type="single">
+  <Accordion title="Can additional coins be minted by authorized entities or through protocol consensus?">
+    No, Swellchain does not allow additional minting of coins by authorized entities or through protocol consensus. This follows the standard bridging mechanisms of the OP Stack, where tokens are bridged representations that are locked on L1 and minted on L2.
+  </Accordion>
+
+  <Accordion title="Can coins be burned by authorized entities or through protocol consensus?">
+    No, there is no mechanism for authorized entities or protocol consensus to burn coins outside of the standard bridge operations. When tokens are withdrawn from L2 to L1, the corresponding L2 representation is burned.
+  </Accordion>
+
+  <Accordion title="Do I need to approve token transfers on Swellchain?">
+    For ETH transfers, no approval is needed. For ERC-20 tokens, standard approval mechanisms apply where you need to call `approve()` before transferring tokens to another contract.
+  </Accordion>
+
+  <Accordion title="How do transaction fees work on Swellchain?">
+    Swellchain transactions include two components:
+    1. L2 Execution Fee: Cost for transaction execution on L2
+    2. L1 Security Fee: Estimated cost for L1 publication
+  </Accordion>
+</Accordions>
+
+## Security and Administration
+
+<Accordions type="single">
+  <Accordion title="Can authorized entities freeze or suspend accounts?">
+    No, Swellchain does not have mechanisms for authorized entities to freeze or suspend accounts. The network follows the same security model as the Ethereum base layer.
+  </Accordion>
+
+  <Accordion title="Can authorized entities freeze the entire network?">
+    No, there is no mechanism to freeze the entire network.
+  </Accordion>
+
+  <Accordion title="Can the ownership of a smart contract be changed by authorized entities?">
+    Smart contracts on Swellchain can implement standard ownership transfer mechanisms, such as the Ownable pattern from OpenZeppelin. The ProxyAdmin contract in Optimism's architecture can transfer ownership of upgradeable contracts, and the protocol includes upgrade mechanisms where ownership or admin rights can be transferred through governance processes.
+  </Accordion>
+
+  <Accordion title="Can the mainnet be updated without the consensus of network participants?">
+    No, network upgrades follow a governance process and require consensus from network participants. It follows the same process as the OP Stack.
+  </Accordion>
+
+  <Accordion title="Does the network support privacy features or dark-coin functionalities?">
+    No, Swellchain does not support dark-coin functionalities or privacy features for tracking transactions. All transactions are publicly visible on the blockchain.
+  </Accordion>
+
+</Accordions>
+
+## Bridging and Interoperability
+
+<Accordions type="single">
+  <Accordion title="How does bridging work between Ethereum and Swellchain?">
+    The Standard Bridge contract enables asset transfers between Ethereum and Swellchain through a lock-and-mint mechanism. When assets are bridged to Swellchain, they are locked on Ethereum and minted as representations on Swellchain. When withdrawn, the L2 tokens are burned, and the original assets are unlocked on L1.
+  </Accordion>
+
+  <Accordion title="Can I bridge any ERC-20 token?">
+    The Standard Bridge utilizes bridged representations of tokens that are native to another blockchain. Before a token native to one chain can be bridged to the other chain, a bridged representation of that token must be created on the receiving side.
+  </Accordion>
+
+  <Accordion title="How long does bridging take?">
+    Bridging from Ethereum to Swellchain is relatively quick (minutes), while bridging from Swellchain back to Ethereum requires the L2 finality period (approximately 7 days) to ensure security.
+  </Accordion>
+</Accordions>
+
+## Technical Operations
+
+<Accordions type="single">
+  <Accordion title="How do I run a Swellchain node?">
+    To run a Swellchain node, refer to the [Node Operation Overview](/docs/node-operation/overview) documentation which provides detailed instructions on hardware requirements, installation, and maintenance.
+  </Accordion>
+
+  <Accordion title="What are the available RPC providers for Swellchain?">
+    Swellchain supports multiple RPC providers including:
+    - Infura RPC
+    - dRPC
+    - AltLayer RPC
+    - Ankr RPC
+
+    For detailed information and connection instructions, see the [RPC Providers](/docs/developer-resources/rpc-providers) page.
+  </Accordion>
+
+  <Accordion title="Where can I find the block explorer for Swellchain?">
+    The official block explorer for Swellchain is available at [https://swellchainscan.io](https://swellchainscan.io).
+  </Accordion>
+</Accordions>
+
+## Centralized Exchange (CEX) Information
+
+<Accordions type="single">
+  <Accordion title="Can CEXs directly integrate with Swellchain?">
+    Yes, Swellchain supports CEX integrations. The network operates on the OP Stack, which is widely used and supported by major exchanges.
+  </Accordion>
+
+  <Accordion title="What should CEXs know about the token bridge?">
+    CEXs should understand that Swellchain's Standard Bridge utilizes bridged representations of tokens. This means:
+    - Tokens bridged from Ethereum are represented as wrapped versions on Swellchain
+    - When bridging back, the L2 token is burned and the L1 token is unlocked
+    - Bridge operations from L2 to L1 have a finality period of approximately 7 days
+  </Accordion>
+
+  <Accordion title="How can CEXs handle deposits and withdrawals securely?">
+    CEXs should:
+    1. Implement proper confirmation counts (30+ blocks recommended)
+    2. Understand the bridge mechanics for cross-chain transfers
+    3. Monitor bridge contracts for deposits coming from other chains
+    4. Use the Standard Bridge contract for withdrawals to ensure security
+  </Accordion>
+
+  <Accordion title="Are there any specific security considerations for CEXs?">
+    CEXs should note that:
+    - The network cannot mint additional coins outside the bridge mechanism
+    - There is no mechanism to freeze or suspend accounts
+    - All transactions are publicly verifiable
+    - The network follows the same security model as Ethereum
+  </Accordion>
+</Accordions> 
