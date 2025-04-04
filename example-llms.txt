@@ -1,0 +1,30 @@
+# Swellchain
+
+> Swellchain is a restaking-powered Layer 2 network built on the OP Stack that extends Ethereum's security through EigenLayer's restaking mechanism while leveraging Optimism's proven infrastructure for scalability.
+
+Swellchain documentation provides comprehensive resources for developers, validators, and users to understand and interact with the Swellchain ecosystem.
+
+## fundamentals
+
+- [About Swellchain](https://docs.swellnetwork.io/docs/fundamentals/about-swellchain.md): Swellchain - The Restaking Yield Layer of the Superchain
+
+## guides
+
+- [Getting Started](https://docs.swellnetwork.io/docs/guides/getting-started.md): How to deploy and interact with smart contracts on Swellchain
+- [Bridging ETH](https://docs.swellnetwork.io/docs/guides/bridging-eth.md): How to bridge ETH between Ethereum and Swellchain
+
+## developer-resources
+
+- [RPC Endpoints](https://docs.swellnetwork.io/docs/developer-resources/rpc-endpoints.md): RPC endpoint information for connecting to Swellchain
+- [Bridges](https://docs.swellnetwork.io/docs/developer-resources/bridges.md): Connect with Swellchain's cross-chain bridges
+- [Faucets](https://docs.swellnetwork.io/docs/developer-resources/faucets.md): Get testnet tokens for development
+
+## node-operation
+
+- [Overview](https://docs.swellnetwork.io/docs/node-operation/overview.md): Introduction to running a Swellchain node
+- [Requirements](https://docs.swellnetwork.io/docs/node-operation/requirements.md): Hardware and software requirements
+- [Installation](https://docs.swellnetwork.io/docs/node-operation/installation.md): Step-by-step installation guide
+
+## Core
+
+- [Welcome](https://docs.swellnetwork.io/docs/index.md): Swellchain - The restaking chain powered by Proof of Restake 

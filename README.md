@@ -76,6 +76,33 @@ We welcome contributions! Feel free to submit a PR or open an issue.
 - [GitHub Issues](https://github.com/swellnetwork/swell-chain-docs/issues)
 - [Discord Community](https://discord.gg/swellnetwork)
 
+## LLMs Integration
+
+This project includes support for the `/llms.txt` specification, which helps language models better understand the documentation structure.
+
+Two files are generated:
+
+1. `/llms.txt` - A structured file that follows the llms.txt specification
+   - Includes an overview of Swellchain
+   - Provides links to markdown versions of all documentation pages, organized by category
+   - Clean, machine-readable content optimized for LLM context
+
+2. `/llms-full.txt` - A comprehensive file containing all documentation content
+   - Contains the complete content of all documentation files in a single document
+   - Includes a table of contents organized by category
+   - Optimized for LLMs with larger context windows
+   - Allows LLMs to search through the entire documentation without following links
+
+The markdown versions of all pages are also generated and served alongside the HTML versions with `.md` appended to the original URL.
+
+To generate these files manually, run:
+
+```bash
+pnpm generate:llms-txt
+```
+
+For more information about the llms.txt specification, visit [llmstxt.org](https://llmstxt.org/).
+
 ---
 
 <div align="center">
