@@ -74,7 +74,7 @@ We welcome contributions! Feel free to submit a PR or open an issue.
 - [Swell Network Website](https://swellnetwork.io)
 - [Swellchain Documentation](https://docs.swellnetwork.io)
 - [GitHub Issues](https://github.com/swellnetwork/swell-chain-docs/issues)
-- [Discord Community](https://discord.gg/swellnetwork)
+- [Discord Community](https://discord.com/invite/voyagerapp)
 
 ## LLMs Integration
 
