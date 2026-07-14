@@ -10,6 +10,7 @@
         "developer-resources/rpc-providers",
         "developer-resources/bridges",
         "developer-resources/contract-addresses",
+        "developer-resources/indexers",
         "guides/block-explorers",
 
         "---🔄 Node Operation---",
